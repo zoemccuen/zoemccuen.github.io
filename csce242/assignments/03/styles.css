@@ -62,7 +62,6 @@ body {
     padding: 5px;
     background-color: rgb(236, 205, 243);
     border: 1px solid black;
-    text-decoration: none;
 }
 
 #main-nav a {
@@ -71,6 +70,12 @@ body {
     border-radius: 2px;
     display: block;
     text-decoration: none;
+}
+#main-nav2 a {
+    padding: 5px;
+    color: black;
+    border-radius: 2px;
+    display: block;
 }
 
 #main-nav a:hover {
