@@ -62,6 +62,7 @@ body {
     padding: 5px;
     background-color: rgb(236, 205, 243);
     border: 1px solid black;
+    text-decoration: none;
 }
 
 #main-nav a {
@@ -69,6 +70,7 @@ body {
     color: black;
     border-radius: 2px;
     display: block;
+    text-decoration: none;
 }
 
 #main-nav a:hover {
@@ -176,10 +178,7 @@ h3 {
     .col2of3,
     .col3of4 {
         flex: 2;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        display: block;
+
     }
 
     .col1of4main {
@@ -190,9 +189,6 @@ h3 {
 }
 
     .col3of4main {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
         flex: 3;
         border: 1px solid black;
         padding-left: 1%;
