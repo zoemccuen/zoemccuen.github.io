@@ -10,7 +10,7 @@ body {
     padding: 20px;
     margin: auto;
     border-radius: 10px;
-    
+
 }
 
 #main-header h1, h2{
@@ -66,6 +66,8 @@ body {
 
 #main-nav {
     text-align: center;
+    align-items: center;
+    display: flex;
 }
 
 /* Images */
