@@ -153,6 +153,9 @@ h3 {
 .flexbottom {
    background-color: LightSlateGray;
    color: white;
+   display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 /* Larger Resolutions */
@@ -173,6 +176,10 @@ h3 {
     .col2of3,
     .col3of4 {
         flex: 2;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        display: block;
     }
 
     .col1of4main {
@@ -183,8 +190,19 @@ h3 {
 }
 
 .col3of4main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     flex: 3;
     border: 1px solid black;
     padding-left: 1%;
+    display: block;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex block;
 }
 }
