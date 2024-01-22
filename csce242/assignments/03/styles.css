@@ -189,20 +189,13 @@ h3 {
 
 }
 
-.col3of4main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    flex: 3;
-    border: 1px solid black;
-    padding-left: 1%;
-    display: block;
-}
-
-.wrap {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    display: flex block;
-}
+    .col3of4main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        flex: 3;
+        border: 1px solid black;
+        padding-left: 1%;
+        display: block;
+    }
 }
