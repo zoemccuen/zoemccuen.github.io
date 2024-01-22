@@ -9,7 +9,7 @@ body {
     width: 50%;
     padding: 20px;
     margin: auto;
-    boarder-radius: 10px;
+    border-radius: 10px;
 
 }
 
@@ -20,7 +20,10 @@ body {
 .column {
     padding: 5px;
     margin: 5px;
-    border-radius: 2px;
+    border-radius: 5px;
+    float: left;
+    width: 25%;
+    height: 200px;
 }
 
 .col1of3 {
@@ -50,9 +53,10 @@ body {
 
 /* Images */
 img {
-    padding: 5px;
-    border: 3px solid #000000; 
-    border-radium: 3px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 /* Tables */
