@@ -59,6 +59,9 @@ body {
     text-align: right;
 }
 
+#give-now {
+    text-decoration: none;
+}
 .nav a {
     text-decoration: none;
 }
