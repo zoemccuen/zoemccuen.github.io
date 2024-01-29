@@ -19,6 +19,7 @@ body {
 
 
 
+
 /* Navigation */
 #header-1-nav ul {
     padding-left: 0;
@@ -45,7 +46,59 @@ body {
     text-align: center;
 }
 
-#main-nav a :hover {
+#main-left-nav a :hover {
+    background: #de4141; 
+    padding: 2px;
+    border-radius: 4px;
+}
+
+#footer-middle-CS-nav a :hover {
+    background: #de4141;
+}
+
+#footer-middle-CS-nav {
+    text-decoration: none;
+    padding: 2px;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #000000;
+}
+
+#footer-middle-OD-nav a :hover {
+    background: #de4141; 
+}
+
+#footer-middle-OD-nav {
+    text-decoration: none;
+    padding: 2px;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #000000;
+}
+
+
+#footer-middle-T-nav a :hover {
+    background: #de4141; 
+}
+
+
+#footer-middle-T-nav {
+    text-decoration: none;
+    padding: 2px;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #000000;
+}
+
+#footer-bottom-nav {
+text-decoration: none;
+padding: 2px;
+border-radius: 4px;
+background: #ffffff;
+color: #000000;
+}
+
+#footer-bottom-nav a :hover{
     background: #de4141; 
 }
 
@@ -54,6 +107,9 @@ body {
     align-items: center;
     display: flex;
 }
+
+
+
 
 
 
@@ -94,6 +150,7 @@ body {
 }
 
 
+
 /* Tables */
 
 /* Typography */
@@ -115,4 +172,11 @@ h2 {
     #main-nav li {
         flex: 1;
     }
+
+    .columns {
+        display: flex;
+
+    }
 }
+
+
