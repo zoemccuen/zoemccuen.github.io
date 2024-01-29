@@ -43,6 +43,16 @@ body {
     background: url(https://place-hold.it/124x124/gray) no-repeat;
 }
 
+.footer-social-facebook,
+.footer-social-instagram,
+.footer-social-twitter {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background: url(https://place-hold.it/35x35/gray/white) no repeat;
+}
+
+
 /* Navigation */
 #header-1-nav ul {
     padding-left: 0;
