@@ -18,6 +18,25 @@ body {
 }
 
 
+#header-usc-text {
+    color: white;
+}
+
+#search {
+    color: white;
+}
+
+#gate {
+    color: white;
+}
+
+#header-link {
+    color: white;
+}
+
+#banner-red {
+    color: white;
+}
 
 
 /* Navigation */
@@ -46,56 +65,29 @@ body {
     text-align: center;
 }
 
+#header-1-nav a :hover {
+    background: #de4141; 
+}
+
+#header-2-nav a :hover {
+    background: #de4141; 
+}
+
 #main-left-nav a :hover {
     background: #de4141; 
-    padding: 2px;
-    border-radius: 4px;
 }
 
 #footer-middle-CS-nav a :hover {
     background: #de4141;
 }
 
-#footer-middle-CS-nav {
-    text-decoration: none;
-    padding: 2px;
-    border-radius: 4px;
-    background: #ffffff;
-    color: #000000;
-}
-
 #footer-middle-OD-nav a :hover {
     background: #de4141; 
-}
-
-#footer-middle-OD-nav {
-    text-decoration: none;
-    padding: 2px;
-    border-radius: 4px;
-    background: #ffffff;
-    color: #000000;
 }
 
 
 #footer-middle-T-nav a :hover {
     background: #de4141; 
-}
-
-
-#footer-middle-T-nav {
-    text-decoration: none;
-    padding: 2px;
-    border-radius: 4px;
-    background: #ffffff;
-    color: #000000;
-}
-
-#footer-bottom-nav {
-text-decoration: none;
-padding: 2px;
-border-radius: 4px;
-background: #ffffff;
-color: #000000;
 }
 
 #footer-bottom-nav a :hover{
@@ -173,10 +165,21 @@ h2 {
         flex: 1;
     }
 
-    .columns {
+    #banner-top-links {
         display: flex;
-
+        gap: 8px;
+        flex-wrap: wrap;
     }
+
+    #banner-top-div {
+        background-color: #000000;
+    }
+
+    #banner-red {
+        background-color: red;
+    }
+
+
 }
 
 
