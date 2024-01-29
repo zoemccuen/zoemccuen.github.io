@@ -32,7 +32,16 @@ body {
     background: url(https://place-hold.it/825x350/gray) no-repeat;
 }
 
-
+.main-content-image-2,
+.main-content-image-3,
+.main-content-image-4,
+.main-content-image-5,
+.main-content-image-6 {
+    width: 124px;
+    height: 124px;
+    display: inline-block;
+    background: url(https://place-hold.it/124x124/gray) no-repeat;
+}
 
 /* Navigation */
 #header-1-nav ul {
