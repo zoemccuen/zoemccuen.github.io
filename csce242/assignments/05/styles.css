@@ -25,6 +25,13 @@ body {
     background: url(https://place-hold.it/250x53&text=USC-Logo) no-repeat;
 }
 
+.main-content-image-1 {
+    width: 820px;
+    height: 350px;
+    display: inline-block;
+    background: url(https://place-hold.it/825x350/gray) no-repeat;
+}
+
 
 
 /* Navigation */
