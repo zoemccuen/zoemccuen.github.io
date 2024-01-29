@@ -5,7 +5,15 @@ body {
 }
 
 #header-list-1, 
-#header-list-2 {
+#header-list-2,
+#main-list,
+#main-list-2,
+#main-list-3,
+#footer-list-1,
+#footer-list-2,
+#footer-list-3,
+#footer-list-4,
+#footer-list-5 {
     list-style-type: none;
 }
 
