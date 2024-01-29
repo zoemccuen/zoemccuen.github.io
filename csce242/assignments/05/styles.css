@@ -9,6 +9,14 @@ body {
     list-style-type: none;
 }
 
+.header-usc-logo-link,
+.footer-usc-logo-link {
+    width: 250px;
+    height: 53px;
+    display: inline-block;
+    background: url(https://place-hold.it/250x53&text=USC-Logo) no-repeat;
+}
+
 
 
 /* Navigation */
