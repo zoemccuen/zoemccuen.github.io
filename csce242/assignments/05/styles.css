@@ -28,6 +28,7 @@ body {
 
 #gate {
     color: white;
+    margin: auto;
 }
 
 #header-link {
@@ -38,9 +39,42 @@ body {
     color: white;
 }
 
+#banner-top-div {
+    background-color: #000000;
+}
+
+#banner-red {
+    background-color: #73000a;
+}
+
+#header-link {
+    display:inline-block;
+    margin: auto;
+    justify-content: end;
+    justify-content: space-between;
+}
+
+#bottom-banner-div {
+    width: 984px;
+    height: 445px;
+}
+
+#foot {
+    color: white;
+}
+
+#footer-bottom-div {
+    background-color: black;
+    display: row;
+    align-items: flex-start;
+}
+
+
+
+
 
 /* Navigation */
-#header-1-nav ul {
+#header-1-nav {
     padding-left: 0;
     text-align: right;
 }
@@ -66,32 +100,32 @@ body {
 }
 
 #header-1-nav a :hover {
-    background: #de4141; 
+    background: #CC2E40; 
 }
 
 #header-2-nav a :hover {
-    background: #de4141; 
+    background: #CC2E40;
 }
 
 #main-left-nav a :hover {
-    background: #de4141; 
+    background: #CC2E40;
 }
 
 #footer-middle-CS-nav a :hover {
-    background: #de4141;
+    background: #CC2E40;
 }
 
 #footer-middle-OD-nav a :hover {
-    background: #de4141; 
+    background: #CC2E40;
 }
 
 
 #footer-middle-T-nav a :hover {
-    background: #de4141; 
+    background: #CC2E40;
 }
 
 #footer-bottom-nav a :hover{
-    background: #de4141; 
+    background: #CC2E40;
 }
 
 #main-nav {
@@ -145,6 +179,7 @@ body {
 
 /* Tables */
 
+
 /* Typography */
 h1 {
     color: #000000; 
@@ -171,14 +206,102 @@ h2 {
         flex-wrap: wrap;
     }
 
-    #banner-top-div {
-        background-color: #000000;
+    #footer-links-div {
+        display: flex;
+        width: 990px;
+        height: 255px;
+        flex-direction: row;
     }
 
-    #banner-red {
-        background-color: red;
+
+    #CS-div {
+        width: 480px;
+        height: 235px;
+        background: #73000a;
+        flex: 1;
+        color: white;
+    }
+    
+    #CS-col1 {
+        display: flex;
+        width: 120px;
+        height: 192px;
+        display: inline-block;
+        align-items: flex-start;  
+        margin: 0px;
+        float: inline-start;
+    }
+    
+    #CS-col2 {
+        display: flex;
+        width: 120px;
+        height: 192px;
+        display: inline-block;
+        align-items: flex-start;
+        float: inline-start;  
+
+    
+    }
+    
+    #CS-col3 {
+        display: flex;
+        width: 150px;
+        height: 192px;
+        display: inline-block;
+        align-items: flex-start;
+        float: inline-start;  
+
     }
 
+    #OD-div {
+        width: 290px;
+        height: 255px;
+        background: #73000a;
+        color: white;
+    }
+    
+    #OD-col1 {
+        display: flex;
+        width: 130px;
+        height: 207px;
+        display: block;
+        align-items: flex-start;
+        float: inline-start;  
+    }
+    
+    #OD-col2 {
+        display: flex;
+        width: 130px;
+        height: 207px;
+        display: block;
+        align-items: flex-start;
+        float: inline-start;      
+    }
+
+    #T-div {
+        display: flex;
+        width: 130px;
+        height: 207px;
+        display: inline-block;
+        align-items: flex-start;
+        background: #73000a;
+        float: inline-start; 
+        color: white; 
+    }
+
+    #footer-bottom-div {
+        display: flex;
+        background-color: black;
+        width: 984px;
+        height: 43px;
+        align-items: flex-start;
+        margin:0 15px 0 15px; 
+        float:left; 
+        display:inline;
+    }
+
+
+    
 
 }
 
