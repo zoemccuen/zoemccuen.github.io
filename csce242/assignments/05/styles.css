@@ -1,143 +1,195 @@
 /* Structure */
 body {
     background: #ffffff;
-    font-family: Berlingske Sans;
-}
-
-#header-list-1, 
-#header-list-2,
-#main-list,
-#main-list-2,
-#main-list-3,
-#footer-list-1,
-#footer-list-2,
-#footer-list-3,
-#footer-list-4,
-#footer-list-5 {
-    list-style-type: none;
-}
-
-
-#header-usc-text {
-    color: white;
-}
-
-#search {
-    color: white;
-}
-
-#gate {
-    color: white;
+    font-family: "Berlingske Sans", "Arial", sans-serif;
+    font-weight: 500;
+    display: flex;
+    flex-flow: column;
+    font-size: 1em;
+    overflow-x: hidden;
+    margin-bottom: 0px;
+    line-height: 1.4;
     margin: auto;
+    color: #222;
 }
 
-#header-link {
-    color: white;
-}
-
-#banner-red {
-    color: white;
-}
-
-#banner-top-div {
-    background-color: #000000;
-}
-
-#banner-red {
-    background-color: #73000a;
-}
-
-#header-link {
-    display:inline-block;
-    margin: auto;
-    justify-content: end;
-    justify-content: space-between;
-}
-
-#bottom-banner-div {
-    width: 984px;
-    height: 445px;
-}
-
-#foot {
-    color: white;
-}
-
-#footer-bottom-div {
+.black-bar {
     background-color: black;
-    display: row;
-    align-items: flex-start;
 }
 
+.header-top {
+    display: flex;
+    margin-top: 15px;
+}
 
+.logo-top {
+    margin-left: 15px;
+    padding-right: 15px;
+}
 
+.header-top {
+    align-items: stretch;
+}
 
+/* This keeps the space on the left and right clear so the page fits in the middle */
+.header-container:before,
+.header-container:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: inherit;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+}
 
-/* Navigation */
-#header-1-nav {
-    padding-left: 0;
+.header-container:after {
+    right: auto;
+    left: 100%;
+}
+
+.sidebar-menu {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: left;
+    border-top: 1px solid gray;
+    float: left;
+    display: inline;
+    width: 255px;
+}
+
+.sidebar-menu-item {
+    text-align: left;
+    border-top: 1px solid gray;
+    padding-bottom: 15px;
+    margin-left: 15px;
+    padding-left: 0px;
+}
+
+.sidebar-menu-item li {
+    font-weight: 800;
+    font-size: 1.125em;
+    line-height: 1.4em;
+    text-align: left;
+    padding-bottom: 15px;
+    border-top: 1px solid gray;
+}
+
+.sidebar-menu-item-selected {
+    font-weight: 800;
+    font-size: 1.125em;
+    line-height: 1.4em;
+    color: black;
+    text-align: left;
+    border-top: 1px solid gray;
+    border-left: 2px solid gray;
+}
+
+.sidebar-menu-item-selected-2 {
+    font-weight: 800;
+    font-size: 0.875em;
+    line-height: 1.4em;
+    color: black;
+    text-align: left;
+    border-top: 1px solid gray;
+    border-left: 2px solid gray;
+}
+
+.sidebar-submenu-item li {    
+    font-weight: 500;
+    font-size: 0.875em;
+    line-height: 1.4em;
+}
+
+.header-top ul,
+li {
+    list-style-image: none;
+    line-height: .625rem;
+    font-weight: 500;
+    font-size: 10px;
+    margin-right: 15px;
+    color: white;
     text-align: right;
-}
-
-#give-now {
-    text-decoration: none;
-}
-.nav a {
-    text-decoration: none;
-}
-#main-nav {
-    list-style-type: none;
-    padding: 5px;
-    text-align: center;
-}
-
-#main-nav a {
-    text-decoration: none;
-    color: #000000;
-    padding: 5px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-#header-1-nav a :hover {
-    background: #CC2E40; 
-}
-
-#header-2-nav a :hover {
-    background: #CC2E40;
-}
-
-#main-left-nav a :hover {
-    background: #CC2E40;
-}
-
-#footer-middle-CS-nav a :hover {
-    background: #CC2E40;
-}
-
-#footer-middle-OD-nav a :hover {
-    background: #CC2E40;
-}
-
-
-#footer-middle-T-nav a :hover {
-    background: #CC2E40;
-}
-
-#footer-bottom-nav a :hover{
-    background: #CC2E40;
-}
-
-#main-nav {
-    text-align: center;
-    align-items: center;
     display: flex;
 }
 
+li {
+    list-style-type: none;
+}
 
+.header-menu {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+    font-size: .625rem;
+    padding: .75em 0;
+    position: absolute;
+    top: 0;
+    right: -15px;
+    text-align: right;
+    color: #fff;
+    text-transform: uppercase;
+}
 
+.header-menu-item {
+    position: relative;
+    color: white;
+    margin-left: .5rem;
+}
 
+.header-top a {
+    color: white;
+}
 
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    background-color: #CC2E40;
+    color: white;
+    text-decoration: none;
+}
+
+.college-title-link {
+    background-color: #73000a;
+    float: right;
+    width: 100%;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    margin-top: 0px;
+    font-weight: 700;
+    margin-left: 15px;
+    font-family: 'Berlingske Serif', 'Georgia', serif;
+    font-size: 1.6em;
+    position: relative;
+    margin-bottom: 1em;
+}
+
+/* This keeps the space on the left and right clear so the page fits in the middle */
+.college-title-link:before,
+.college-title-link:after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.college-title-link:after {
+    right: auto;
+    left: 100%;
+}
+
+.college-title-link a {
+    color: white;
+}
+
+/* Tables */
 
 /* Images */
 .header-usc-logo-link,
@@ -145,7 +197,8 @@ body {
     width: 250px;
     height: 53px;
     display: inline-block;
-    background: url(https://place-hold.it/250x53&text=USC-Logo) no-repeat;
+    background: url(https://place-hold.it/250x53&text=USC-Logo/lightgray) no-repeat;
+    order: 1;
 }
 
 .main-content-image-1 {
@@ -176,13 +229,46 @@ body {
 }
 
 
-
-/* Tables */
-
-
 /* Typography */
+
+/* These are the typefaces needed to reproduce this page. These are linked directly to the ones on the USC site */
+@font-face {
+    font-family: 'Berlingske Sans';
+    src: url('https://sc.edu/_global_resources/fonts/BerlingskeSans-Md.woff2') format('woff2'),
+        url('https://sc.edu/_global_resources/fonts/BerlingskeSans-Md.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Berlingske Sans';
+    src: url('https://sc.edu/_global_resources/fonts/BerlingskeSans-XBd.woff2') format('woff2'),
+        url('https://sc.edu/_global_resources/fonts/BerlingskeSans-XBd.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Berlingske Sans Extracondensed';
+    src: url('https://sc.edu/_global_resources/fonts/BerlingskeSansXCn-XBd.woff2') format('woff2'),
+        url('https://sc.edu/_global_resources/fonts/BerlingskeSansXCn-XBd.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Berlingske Serif';
+    src: url('https://sc.edu/_global_resources/fonts/BerlingskeSerif-Bd.woff2') format('woff2'),
+        url('https://sc.edu/_global_resources/fonts/BerlingskeSerif-Bd.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
 h1 {
-    color: #000000; 
+    color: #000000;
 }
 
 h2 {
@@ -191,118 +277,129 @@ h2 {
 
 
 /* Larger Resolutions */
-@media (min-width: 900px) {
-    #main-nav ul {
+@media (min-width: 851px) {
+    .header-container {
         display: flex;
-    }
-
-    #main-nav li {
-        flex: 1;
-    }
-
-    #banner-top-links {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    #footer-links-div {
-        display: flex;
-        width: 990px;
-        height: 255px;
-        flex-direction: row;
-    }
-
-
-    #CS-div {
-        width: 480px;
-        height: 235px;
-        background: #73000a;
-        flex: 1;
+        width: 1150px;
+        margin: auto;
+        padding-left: 15px;
+        flex-flow: row wrap;
+        align-items: stretch;
+        background-color: #000;
         color: white;
     }
-    
-    #CS-col1 {
-        display: flex;
-        width: 120px;
-        height: 192px;
-        display: inline-block;
-        align-items: flex-start;  
-        margin: 0px;
-        float: inline-start;
-    }
-    
-    #CS-col2 {
-        display: flex;
-        width: 120px;
-        height: 192px;
-        display: inline-block;
-        align-items: flex-start;
-        float: inline-start;  
 
-    
-    }
-    
-    #CS-col3 {
+    .sub-header-container {
         display: flex;
-        width: 150px;
-        height: 192px;
-        display: inline-block;
-        align-items: flex-start;
-        float: inline-start;  
-
-    }
-
-    #OD-div {
-        width: 290px;
-        height: 255px;
-        background: #73000a;
+        width: 1150px;
+        margin: auto;
+        padding-left: 32px;
+        height: 38px;
+        flex-flow: row wrap;
+        align-items: stretch;
+        background-color: #73000a;
         color: white;
     }
-    
-    #OD-col1 {
+
+    .main-container {
         display: flex;
-        width: 130px;
-        height: 207px;
-        display: block;
-        align-items: flex-start;
-        float: inline-start;  
-    }
-    
-    #OD-col2 {
-        display: flex;
-        width: 130px;
-        height: 207px;
-        display: block;
-        align-items: flex-start;
-        float: inline-start;      
+        width: 1150px;
+        margin: auto;
+        flex-flow: row wrap;
+        align-items: stretch;
+        color: #000;
+        background-color: white;
     }
 
-    #T-div {
-        display: flex;
-        width: 130px;
-        height: 207px;
-        display: inline-block;
-        align-items: flex-start;
-        background: #73000a;
-        float: inline-start; 
-        color: white; 
+    .search-box {
+        width: 212px;
+        height: 28px;
+        font-weight: bold;
+        padding-left: 6px;
+        padding-bottom: 0px;
+        border: 1px solid white;
+        background: black;
+        font-size: 1.125rem;
+        text-align: justify;
+        text-justify: inter-word;
+        color: grey;
+        position: relative;
+        right: calc(100% / 4);
+        top: 2em;
     }
-
-    #footer-bottom-div {
-        display: flex;
-        background-color: black;
-        width: 984px;
-        height: 43px;
-        align-items: flex-start;
-        margin:0 15px 0 15px; 
-        float:left; 
-        display:inline;
-    }
-
-
-    
-
 }
 
+@media (max-width: 850px) {
+    .header-container {
+        display: flex;
+        width: 850px;
+        margin: auto;
+        flex-flow: row wrap;
+        align-items: stretch;
+        background-color: #000;
+        color: white;
+    }
 
+    .main-container {
+        display: flex;
+        width: 850px;
+        margin: auto;
+        flex-flow: row wrap;
+        align-items: stretch;
+        color: #000;
+        background-color: white;
+    }
+
+    .search-box {
+        width: 212px;
+        height: 28px;
+        font-weight: bold;
+        padding-left: 6px;
+        padding-bottom: 0px;
+        border: 1px solid white;
+        background: black;
+        font-size: 1.125rem;
+        text-align: justify;
+        text-justify: inter-word;
+        color: grey;
+        position: relative;
+        right: calc(100% / 4);
+        top: 2em;
+    }
+}
+
+/* Smaller Resolutions */
+
+@media (max-width: 849px) {
+    .header-container {
+        display: flex;
+        width: 732px;
+        margin: auto;
+        flex-flow: row wrap;
+        align-items: stretch;
+        background-color: #000;
+        color: white;
+    }
+
+    .main-container {
+        display: flex;
+        width: 732px;
+        margin: auto;
+        flex-flow: row wrap;
+        align-items: stretch;
+        color: #000;
+        background-color: white;
+    }
+
+    .search-box {
+        display: hidden;
+    }
+
+    .header-menu {
+        display: none;
+    }
+
+    .header-menu-item {
+        display: none;
+    }
+}
