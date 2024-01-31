@@ -31,6 +31,12 @@ body {
     align-items: stretch;
 }
 
+#CS-div,
+#OD-div,
+#T-div {
+    background: #73000a;
+}
+
 /* This keeps the space on the left and right clear so the page fits in the middle */
 .header-container:before,
 .header-container:after {
