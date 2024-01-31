@@ -31,12 +31,6 @@ body {
     align-items: stretch;
 }
 
-#CS-div,
-#OD-div,
-#T-div {
-    background: #73000a;
-}
-
 /* This keeps the space on the left and right clear so the page fits in the middle */
 .header-container:before,
 .header-container:after {
@@ -102,7 +96,7 @@ body {
     border-left: 2px solid gray;
 }
 
-.sidebar-submenu-item li {    
+.sidebar-submenu-item li {
     font-weight: 500;
     font-size: 0.875em;
     line-height: 1.4em;
@@ -122,6 +116,10 @@ li {
 
 li {
     list-style-type: none;
+}
+
+.orphan {
+    text-align: right;
 }
 
 .header-menu {
@@ -195,7 +193,223 @@ a:hover {
     color: white;
 }
 
+.bottom-banner-div {
+    background-color:#73000a;
+    display: flex;
+    width: 1150px;
+    margin: auto;    
+    padding-left: 15px;
+    padding-top: 15px;
+    flex-flow: row wrap;
+    align-items: stretch;
+    color: white;
+}
+
+/* Bottom Text for College name */
+.college-title-bottom {
+    background-color: #ececec;
+    color: black;
+    padding-left: 15px;
+    width: 100%;
+    padding-top: .25em;    
+    margin-top: 0px;
+    font-weight: 700;
+    margin-left: 15px;
+    font-family: 'Berlingske Serif', 'Georgia', serif;
+    font-size: 1.6em;
+    position: relative;
+    display: flex;
+}
+
+/* This keeps the space on the left and right clear so the page fits in the middle */
+.college-title-bottom:before,
+.college-title-bottom:after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.college-title-bottom:after {
+    right: auto;
+    left: 100%;
+}
+
+.footer-top ul,
+li {
+    list-style-image: none;
+    line-height: .625rem;
+    font-weight: 500;
+    font-size: 10px;
+    margin-right: 15px;
+    color: white;
+    text-align: right;
+    display: flex;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+    font-size: .625rem;
+    padding: .75em 0;
+    position: absolute;
+    top: 0;
+    right: 32px;
+    text-align: right;
+    color: black;
+    text-transform: uppercase;
+}
+
+.footer-menu-item {
+    position: relative;
+    color: white;
+    margin-left: .5rem;
+}
+
+.footer-menu-item a {
+    text-decoration: none;
+}
+
+.content-panel {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 30px;
+    margin-top: 15px;
+    text-align: left;
+    float: right;
+    display: inline;
+    width: 75%;
+}
+
+.content-body {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 0px;
+    margin-top: 15px;
+    text-align: left;
+    float: left;
+    display: inline;
+    width: 75%;
+}
+
+.content-body ul ul {
+    font-size: 1em;
+}
+
+.content-block-pic {
+    width: 128px;
+    height: 128px;
+}
+
+hr {
+    margin-bottom: 32px;
+    color: lightgray;
+}
+
+
+.footer-menu {
+    display: block;
+    font-size: 10px;
+    font-size: .625rem;
+    padding: .75em 0;    
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.footer-menu-item {    
+    color: white;
+    margin-left: .5rem;
+}
+
+.footer-menu-bottom {    
+    font-size: 1em;
+    font-size: .625rem;
+    padding: .75em 0;    
+    text-align: center;
+    color: #fff;
+    background: black;
+    text-transform: uppercase;
+}
+
+.footer-menu-bottom-item {    
+    color: white;
+    margin-left: .5rem;
+}
+
+.footer-menu-bottom-item table td {
+    width: 100%;
+    text-align: center;
+    padding-right: 15px; 
+}
+
+.footer-menu-bottom-item a {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-right: 1px solid white;
+}
+
 /* Tables */
+
+table {
+    vertical-align: top;
+}
+
+th {
+    vertical-align: top;
+}
+
+.content-block table {    
+    width: 100%;
+}
+
+.content-block td {
+    vertical-align: top;    
+}
+
+.footer-grids {
+    text-align: left;
+    color: white;
+    vertical-align: top;
+}
+
+.footer-list-left {
+    font-size: .85em;
+    font-weight: 500;
+    line-height: 1.3em;
+    text-align: left;
+}
+
+.footer-list-left li {
+    padding-bottom: 15px;
+    font-size: 1em;
+    text-align: left;
+    line-height: 1em;
+}
+
+.footer-list-left tr {
+    vertical-align: top;
+}
+
+.footer-list-left th {
+    border-bottom: 1px solid white;
+}
+
+.footer-list-left td {
+    padding-top: 15px;
+    padding-bottom: 15px;    
+    text-align: left;
+    height: 100%;
+}
+
+.footer-list-left a {
+    color: white;    
+}
 
 /* Images */
 .header-usc-logo-link,
@@ -211,7 +425,7 @@ a:hover {
     width: 820px;
     height: 350px;
     display: inline-block;
-    background: url(https://place-hold.it/825x350/gray) no-repeat;
+    background: url(https://place-hold.it/825x350/lightgray) no-repeat;
 }
 
 .main-content-image-2,
@@ -278,9 +492,25 @@ h1 {
 }
 
 h2 {
-    color: #000000;
+    font-weight: 800;
+    color: #73000a;
+    margin: 0px 0px 5px;
 }
 
+h3 {
+    font-weight: 800;
+    color: #73000a;
+    margin: 0px 0px 5px;
+}
+
+
+p.top-intro {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin: 0px 0px 20px;
+    border-bottom: 1px solid #C7C7C7;
+    padding-bottom: 20px;
+}
 
 /* Larger Resolutions */
 @media (min-width: 851px) {
@@ -309,9 +539,11 @@ h2 {
 
     .main-container {
         display: flex;
+        flex-direction: row;
+        flex-flow: row wrap;
+        float: right;
         width: 1150px;
         margin: auto;
-        flex-flow: row wrap;
         align-items: stretch;
         color: #000;
         background-color: white;
