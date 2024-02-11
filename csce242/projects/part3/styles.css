@@ -125,7 +125,7 @@ button:hover {
     background-color: seashell;
     font-weight: bold;
     color: black;
-    border: 1px solid rgb(119, 129, 207);
+    border: 5px solid rgb(119, 129, 207);
     font-weight: bold;
     text-align: center;
 }
@@ -133,7 +133,7 @@ button:hover {
 #main-nav li:hover .nav-link{
     color: white;
     background-color: rgb(134, 40, 222);
-    padding: 5px 30px;
+    padding: 5px 10px;
 }
 
 #main-nav a {
