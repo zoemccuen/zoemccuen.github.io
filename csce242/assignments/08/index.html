@@ -7,41 +7,56 @@
 </head>
 <body>
     <header id="main-header">
-        <h1>Assignment 7</h1>
+        <h1>Assignment 8</h1>
     </header>
     <main>
         <div id="main-content">
-            <h2>Introduction to JavaScript</h2>
-            <div class="flex-container">
+            <h2>If Statements</h2>
+            <nav class="top-menu">
+                <div id="nav-toggle">
+                    <img id="menu-icon" src="images/menu-close.png">
+                </div>
+                <div id="main-nav" class="hidden">
+                    <ul class="flex-container">
+                        <li id="nav-command">Example 1</li>
+                        <li id="nav-slider">Example 2</li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="example-command">
+                <div class="column">
+                    <section>
+                        <h3>Enter Command</h3>
+                        <div class="menu-text">
+                            <ul>
+                                <li>b: Read a Book</li>
+                                <li>c: Act like a clown</li>
+                                <li>p: Have a birthday party</li>
+                                <li>r: Walk in the rain</li>
+                                <li>s: Shovel up some dirt</li>
+                                <li>w: Go to work</li>
+                            </ul>
+                        </div>
+                        <p><input id="command-box" type="text" value=""></p>
+                        <img id="image-changer-type" class="image-type-1" src="images/original.jpg">
+                        <p>Image by
+                            <a href="https://www.freepik.com/free-vector/hand-drawn-stickman-collection_20856908.htm#query=stick%20figure&position=1&from_view=keyword&track=ais&uuid=12d17ea3-cffc-4386-9be4-ff9dc4b5edc2">Freepik</a>
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <div id="example-yoga" class="hidden">
                 <section class="column">
-                    <h3>Change Image</h3>
-                    <img id="image-changer" class="image-type-1" src="images/jimi.png">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et doloe magna aliqua. Ut
-                        enim ad minim neniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliqui ex ea commodo consequat.
-                    </p>
-                </section>
-                <section class="column">
-                    <h3>Slider Rotation</h3>
-                    <img id="image-rotator" class="image-type-1" src="images/nwa.png">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et doloe magna aliqua. Ut
-                        enim ad minim neniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliqui ex ea commodo consequat.
-                    </p>
+                    <h3>Yoga Slide</h3>
+                    <img id="image-changer-slide" class="image-type-2" src="images/yoga1.jpg">
                     <div class="slidecontainer">
-                        <input id="slider-bar" type="range" min="1" max="360" value="0" class="slider" id="rotator">
-                      </div>
-                </section>
-                <section id="star-adder" class="column star-column">
-                    <h3>Stars</h3>
-                    <div id="image-star">
-                    &nbsp;
+                        <p><input id="slider-bar" type="range" min="1" max="8" value="1" class="slider" id="yoga-slider"></p>
                     </div>
+                    <p>Image by
+                        <a href="https://www.freepik.com/free-vector/hand-drawn-stickman-collection_20856908.htm#query=stick%20figure&position=1&from_view=keyword&track=ais&uuid=12d17ea3-cffc-4386-9be4-ff9dc4b5edc2">Freepik</a>
+                    </p>
                 </section>
             </div>
-        </div>
     </main>
     <footer id="main-footer">
         <p>&copy; 2024 Zoe McCuen</p>
