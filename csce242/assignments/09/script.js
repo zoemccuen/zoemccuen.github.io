@@ -44,13 +44,10 @@ const bounceBall = () => {
             theBall.style.setProperty("--ball-vector", -vector);
             vector = -vector;
         }
-
         if (ballY <= 5 && vector < 0) {
             theBall.style.setProperty("--ball-vector", -vector);
             vector = -vector;
-
         }
-
         document.getElementById("image-ball").style.marginTop = (ballY + vector) + "px";
     }
 }
