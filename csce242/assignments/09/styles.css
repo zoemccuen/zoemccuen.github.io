@@ -209,7 +209,7 @@ h4 {
 @media (min-width: 900px) {
     main {
         overflow-y: auto;
-        height: 600px;
+        height: 630px;
     }
 
     #main-content {
