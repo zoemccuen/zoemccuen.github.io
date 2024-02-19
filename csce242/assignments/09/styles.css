@@ -4,7 +4,7 @@ body {
 }
 
 a {
-    color: black;        
+    color: black;
 }
 
 a:hover {
@@ -17,6 +17,22 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.yoga-fun-info {
+    display: inline-flex;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.yoga-fun-info p {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.yoga-hidden {
+    display: none;
 }
 
 .column {
@@ -44,7 +60,7 @@ section {
     padding-bottom: 10px;
     background-color: white;
     border: 1px solid maroon;
-    
+
 }
 
 #menu-icon {
@@ -84,12 +100,13 @@ main {
     width: 64px;
     height: 64x;
     margin-top: 0px;
-    --ball-vector: 5;
+    --ball-vector: 15;
 }
 
 .image-type-2 {
     width: 225px;
     height: 225px;
+    margin-top: 10px;
     border: 1px solid crimson;
 }
 
