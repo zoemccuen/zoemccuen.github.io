@@ -1,0 +1,137 @@
+/* Structure */
+body {
+    margin: auto;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: darkslategrey;
+}
+
+section {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo {            
+    width: 95%;    
+    background-color: none;
+}
+
+.photo-element {
+    width: 100%;
+    padding-left: 0px;    
+}
+
+.photo-link {    
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.banner-text {
+    padding: 5px;
+    --ad-number: 1;
+}
+
+.column {
+    background-color: seashell;
+    border: 1px solid darkslategrey;
+    padding: 10px;
+    max-width: 489px;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+main {
+    background-color: antiquewhite;
+    padding-bottom: 10px;
+}
+
+#main-header {
+    background-color: darkslategrey;
+    color: white;
+    padding-bottom: 0px;
+}
+
+#main-content {
+    background-color: antiquewhite;
+    padding: 5px;
+    margin: auto;
+}
+
+#main-footer {
+    background-color: darkslategrey;
+    color: white;
+    padding: 5px;
+}
+
+#main-footer p {
+    text-align: center;
+}
+
+
+/* Typopgraphy */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.column p {
+    text-align: left;
+    color: darkslategrey;
+    margin: 5px;
+    padding: 5px;
+}
+
+#main-header h1 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+#main-content {
+    margin-left: 5px;
+}
+
+#main-content h2,
+h3,
+h4 {
+    text-align: center;
+    padding-bottom: none;
+    margin: auto;
+    margin-bottom: none;
+}
+
+/* Larger Resolutions */
+@media (min-width: 900px) {
+
+    #main-content {
+        width: 60%;
+        margin: auto;
+    }
+
+    section {
+        text-align: center;
+        margin: auto;
+    }
+
+    .flex-container {
+        display: flex;
+    }
+
+    .column {
+        background-color: seashell;
+        border: 1px solid (216, 160, 208);
+        width: 100%;
+        padding: 10px;
+        margin: auto; 
+    }
+}
