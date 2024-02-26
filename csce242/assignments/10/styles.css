@@ -37,7 +37,7 @@ section {
 
 .banner-text {
     padding: 5px;
-    --ad-number: 1;
+    --ad-number: 0;
 }
 
 .column {

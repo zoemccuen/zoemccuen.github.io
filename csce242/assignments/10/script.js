@@ -40,7 +40,6 @@ const changeBanner = () => {
     const theBanner = document.querySelector(".banner-text");
     const styles = window.getComputedStyle(theBanner);
     let adCopy = [];
-    adCopy.push("I love JS files");
     adCopy.push("Todays weather is sunny and 60s");
     adCopy.push("Dogs are the best!");
     adCopy.push("Poof Poof mange madame");
@@ -49,8 +48,8 @@ const changeBanner = () => {
     let textIndex = parseInt(styles.getPropertyValue("--ad-number"), 10);    
     document.getElementById("banner").innerHTML = "<h4>" + adCopy[textIndex] + "</h4>";    
     textIndex ++;
-    if (textIndex>5) {
-        textIndex = 1;
+    if (textIndex>4) {
+        textIndex = 0;
     }
     theBanner.style.setProperty("--ad-number", textIndex);    
 }
