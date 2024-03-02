@@ -2,46 +2,56 @@
     {
         "name": "Douglas Fir",
         "source": "images/douglasfir.jpg",
-        "growthRate": "super-fast",
-        "avgHeight": "1 inch",
-        "lifespan": "20 minutes",
-        "habitat": "sewers",
-        "description": "It's a small stinky tree."
+        "treeType": "Coniferous",
+        "growthRate": "Medium",
+        "avgHeight": "150 ft",
+        "lifespan": "80 years",
+        "habitat": "Western North America and Eastern Asia",
+        "description": "Douglas fir trees have long, flat, spirally arranged needles that grow directly from the branch and completely surround it. Each yellow- or blue-green needle is borne singly and has a short stalk at the base and a grooved upper surface. Winter buds are brown, shiny, and pointed. The hanging oblong cones characteristically have three-pointed bracts (outer cone scales) that protrude from the cone scales. Cones mature in one season and retain their scales when they fall.",
+        "treeID": "100"
     },
     {
         "name": "Elberta Peach",
         "source": "images/peach.jpg",
+        "treeType": "Deciduous",
         "growthRate": "slow",
         "avgHeight": "1 mile",
         "lifespan": "30 years",
         "habitat": "Lunar",
-        "description": "Red"
+        "description": "Red",
+        "treeID":  "101"
     },
     {
         "name": "Scots Pine",
         "source": "images/scotspine.jpg",
+        "treeType": "Coniferous",
         "growthRate": "slow",
         "avgHeight": "1 mile",
         "lifespan": "30 years",
         "habitat": "Lunar",
-        "description": "Red"
+        "description": "Red",
+        "treeID":  "102"
     },
     {
         "name": "American Beech",
         "source": "images/americanbeech.jpg",
+        "treeType": "Deciduous",
         "growthRate": "slow",
         "avgHeight": "1 mile",
         "lifespan": "30 years",
         "habitat": "Lunar",
-        "description": "Red"
+        "description": "Red",
+        "treeID":  "103"
     },
     {
         "name": "Common Boxwood",
         "source": "images/commonboxwood.jpg",
+        "treeType": "Deciduous",
         "growthRate": "slow",
         "avgHeight": "1 mile",
         "lifespan": "30 years",
         "habitat": "Lunar",
-        "description": "Red"
+        "description": "Red",
+        "treeID":  "104"
     }
 ]
