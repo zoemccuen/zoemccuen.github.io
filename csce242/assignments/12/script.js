@@ -102,7 +102,7 @@ const modalOpen = (theName) => {
 }
 
 const loadHouse = async () => {
-    const url = "https://portiaportia.github.io/json/house-plans.json" + new Date().getTime(); // Trick to get it to not cache the file
+    const url = "https://portiaportia.github.io/json/house-plans.json" + new Date().getTime();
     try {
         const house = await House.fetch(url);
         return await house;
