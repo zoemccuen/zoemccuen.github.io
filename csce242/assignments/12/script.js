@@ -124,45 +124,17 @@ const initGallery = async () => {
     }
 }
 
+
 const showPlans = async () => {
-    let plans = await getplans();
-    let plansSection = document.getElementById("house-section");
-
-    plans.forEach((plans) => {
-        plansSection.append(getPlansItem(plans))
-    });
+    let plans = await getPlans();
+    let plansSection = document.getElementById("floor_plans");
+    plans.type.forEach(getPlans(plans));
 };
 
-const getPlansItem = (plans) => {
-    let section = document.createElement("section");
-
-    let h3 = document.createElement("h3");
-    h3.innerText = plans.name;
-    section.append(h3);
-
-    let ul = document.createElement("ul");
-    section.append(ul);
-    // floor plans 1
-    ul.append(getLi(plans.name));
-    // floor plans 2
-    ul.append(getLi(plans.name));
-
-    section.append(getImage(plans.floor_plans1));
-    section.append(getImage(plans.floor_plans2));
-
-    return section;
-}
-
-const getFloorPlans = data => {
-    const floorPlans = document.createElement("floorPlans");
-    floorPlans.floorPlansContent = data;
-    return floorPlans;
+const getPlans = (plans) => {
+    let img = document.createElement("img");
+    section.append(img);
 };
-
-
-
-    return section;
-
 
 window.onload = () => {
     initGallery();
