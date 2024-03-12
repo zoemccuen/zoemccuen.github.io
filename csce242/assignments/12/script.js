@@ -30,7 +30,7 @@ class House {
 /* FIX THIS */
     get expandedSection() {        
         const photoSection = document.createElement("section");
-        const target = "modal-" + this.treeID;        
+        const target = "modal-" + this.name;        
         photoSection.classList.add("w3-modal");
         photoSection.id = target;
 
@@ -55,8 +55,7 @@ class House {
                             "<p><b>Size:</b> " + this.size + "</p>" +
                             "<p><b>Bedrooms:</b> " + this.bedrooms + "</p>" +
                             "<p><b>Bathrooms:</b> " + this.bathrooms + "</p>" +
-                            "<p><b>Features:</b> " + this.features + "</p>" + 
-                            "<p>" + this.description + "</p>";
+                            "<p><b>Features:</b> " + this.features + "</p>";
 
         houseFacts.innerHTML = houseFactText;
         textBox.appendChild(heading);
@@ -67,7 +66,6 @@ class House {
         imageBox.classList.add("photo-big");    
         imageBox.appendChild(photoImg); 
 
-        contentDiv.appendChild(closeButton);
 
         const infoCard = document.createElement("div");
         infoCard.classList.add("info-card");
@@ -85,7 +83,7 @@ class House {
     get section() {
         const photoSection = document.createElement("section");
         photoSection.classList.add("photo");
-        const target = "modal-" + this.treeID;
+        const target = "modal-" + this.name;
         photoSection.onclick = () => { modalOpen(target); };
         const photoImg = document.createElement("img");
         photoImg.src = this.source;        
@@ -101,10 +99,6 @@ class House {
 
 const modalOpen = (theName) => {
     document.getElementById(theName).style.display = "block";
-}
-
-const modalClose = (theName) => {
-    document.getElementById(theName).style.display = "none";
 }
 
 const loadHouse = async () => {
