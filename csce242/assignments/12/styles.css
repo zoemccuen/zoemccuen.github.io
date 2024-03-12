@@ -26,7 +26,7 @@ section {
 .expanded-info {
     display: flex;
     color: darkslategray;
-    width: 75%;
+    width: 100%;
 }
 
 .house-info {
@@ -110,10 +110,7 @@ main {
 
 
 /* Navigation */
-.close-button {
-    color: black;
-    font-weight: bold;
-}
+
 
 /* Typopgraphy */
 body {
