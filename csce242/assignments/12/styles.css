@@ -1,0 +1,189 @@
+/* Structure */
+body {
+    margin: auto;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: crimson;
+}
+
+section {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.expanded-info {
+    display: flex;
+    color: darkslategray;
+    width: 75%;
+}
+
+.house-info {
+    text-align: left;    
+    padding: 10px;
+}
+
+.house-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.info-card {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: 100%;        
+    text-align: left;    
+    
+}
+
+.photo {
+    color: white;
+    background-color: darkslategray;    
+    width: 200px;
+    height: 280px;
+    margin: 20px;
+    padding: 10px;
+    padding-top: 0px;
+    margin-top: 0px;
+    border: 2px solid white;
+    border-radius: 6px;
+    cursor: zoom-in;
+}
+
+.photo-big {         
+    margin: 20px;
+    padding: 10px;               
+}
+
+.photo-element-big {
+    width: 300px;    
+}
+
+.photo-element {
+    width: 100%;
+    vertical-align: top;
+}
+
+.photo-title {
+    font-weight: bold;
+}
+
+main {
+    background-color: antiquewhite;
+    padding-bottom: 10px;
+}
+
+#main-header {
+    background-color: rgb(100, 23, 23);
+    color: white;
+    padding-bottom: 0px;
+}
+
+#main-content {
+    background-color: antiquewhite;
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+}
+
+#main-footer {
+    background-color: darkslategrey;
+    color: white;
+    padding: 5px;
+}
+
+#main-footer p {
+    text-align: center;
+}
+
+
+/* Navigation */
+.close-button {
+    color: black;
+    font-weight: bold;
+}
+
+/* Typopgraphy */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main-header h1 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+#main-content {
+    margin-left: 5px;
+}
+
+#main-content h2,
+h3,
+h4 {
+    text-align: center;
+    padding-bottom: none;
+    margin: auto;
+    margin-bottom: none;
+}
+
+/* Larger Resolutions */
+@media (min-width: 900px) {
+
+    #main-content {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+
+    section {
+        text-align: center;
+        margin: auto;
+        vertical-align: top;
+
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .photo {
+        flex: 0 0 auto;
+        vertical-align: top;
+        width: 200px;
+        height: 280px;
+        margin: 20px;
+        padding: 10px;
+        padding-top: 0px;
+        margin-top: 0px;
+        border: 2px solid white;
+        border-radius: 6px;
+        cursor: zoom-in;
+    }
+    
+    .info-card {
+        display: flex;        
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;        
+        text-align: left;    
+        
+    }    
+}
