@@ -8,7 +8,7 @@ class House {
         this.main_image = main_image;
         this.floor_plans = floor_plans;
     }
-    
+
     static async fetch(url) {
         try {
             const response = await fetch(url);
@@ -17,8 +17,8 @@ class House {
             }
             const houseData = await response.json();
             const house = houseData.map(houseData => {
-                const { name, size, bedrooms, bathrooms, features, main_image, floor_plans} = houseData;
-                return new House(name, size, bedrooms, bathrooms, features, main_image, floor_plans);
+                const {size, bedrooms, bathrooms, features} = houseData;
+                return new House(size, bedrooms, bathrooms, features);
             });
             return house;
         } catch (error) {
