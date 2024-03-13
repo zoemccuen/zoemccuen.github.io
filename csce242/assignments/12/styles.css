@@ -15,69 +15,59 @@ section {
     text-align: center;
 }
 
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.expanded-info {
-    display: flex;
-    color: darkslategray;
-    width: 100%;
+.main-house-section {
+    display: inline-block;
+    width: 80%;
+    padding: 0;
+    padding-bottom: 20px;
 }
 
 .house-info {
+    display: flex;
+    flex-direction: row;
     text-align: left;    
-    padding: 10px;
+    padding: 0px;
+    background-color:darkslategray;
+    color: white;
 }
 
 .house-heading {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
+    padding: 0;
+    color: darkslategray;
 }
 
-.info-card {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    width: 100%;        
-    text-align: left;    
-    
+h3 {
+    font-size: 1.2em;
+    color: darkslategray;
+    text-align: center;
 }
 
-.photo {
-    color: white;
-    background-color: darkslategray;    
-    width: 200px;
-    height: 280px;
-    margin: 20px;
-    padding: 10px;
-    padding-top: 0px;
-    margin-top: 0px;
-    border: 2px solid white;
-    border-radius: 6px;
-    cursor: zoom-in;
+.photo-house {
+    width: 400px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    padding-right: 10px;    
 }
 
-.photo-big {         
-    margin: 20px;
-    padding: 10px;               
-}
-
-.photo-element-big {
-    width: 300px;    
-}
-
-.photo-element {
+.floor-plans-container {
     width: 100%;
-    vertical-align: top;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.photo-title {
-    font-weight: bold;
+.floor-plans {
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.img-floor-plans {
+    width: 100%;
 }
 
 main {
@@ -129,7 +119,6 @@ body {
 }
 
 #main-content h2,
-h3,
 h4 {
     text-align: center;
     padding-bottom: none;
@@ -153,28 +142,12 @@ h4 {
 
     }
 
-    .flex-container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
+    .floor-plans {
+        width: 48%;
+        padding-top: 20px;
+        text-align: center;
     }
-
-    .photo {
-        flex: 0 0 auto;
-        vertical-align: top;
-        width: 200px;
-        height: 280px;
-        margin: 20px;
-        padding: 10px;
-        padding-top: 0px;
-        margin-top: 0px;
-        border: 2px solid white;
-        border-radius: 6px;
-        cursor: zoom-in;
-    }
-    
+        
     .info-card {
         display: flex;        
         flex-wrap: nowrap;
