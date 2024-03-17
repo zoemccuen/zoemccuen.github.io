@@ -3,6 +3,20 @@ body {
     margin: auto;
 }
 
+.out-of-stock {
+    opacity: 50%;
+    text-decoration: line-through;
+    color: red;
+    padding-top: 0;
+    padding-bottom: 2px;    
+    margin: auto;
+    border-bottom: 1px solid white;
+}
+
+.faded {
+    opacity: 50%;    
+}
+
 .review-box h3 {
     text-decoration: underline;
 }
@@ -31,7 +45,7 @@ main {
 }
 
 #main-content {
-    padding: 5px;
+    padding: 5px;    
 }
 
 .order-quantity {
@@ -294,6 +308,8 @@ h4 {
     .flex-container {
         display: flex;
         column-gap: 5%;
+        flex-wrap:wrap;
+        
     }
 
     .column,
