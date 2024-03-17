@@ -75,7 +75,7 @@ class Pin {
 }
 
 const loadPin = async () => {
-    const url = "json/pins.json?" + new Date().getTime();;
+    const url = "JSON/pins.json?" + new Date().getTime();;
     try {
         const pin = await Pin.fetch(url);
         return await pin;
