@@ -1,160 +1,160 @@
 {
-  "pins": [
-      {
-          "pin_id": 1,
-          "name": "Gamecock Disco Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-01.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "20"
-          }
-      },
-      {
-          "pin_id": 2,
-          "name": "Spurs Up Cocky Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-02.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "23"
-          }
-      },
-      {
-          "pin_id": 3,
-          "name": "Sandstorm Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-03.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "0"
-          }
-      },
-      {
-          "pin_id": 4,
-          "name": "Logo Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-04.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      },
-      {
-          "pin_id": 5,
-          "name": "Beamer Ball Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-05.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      },
-      {
-          "pin_id": 6,
-          "name": "Garnet Gameday Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-06.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      },
-      {
-          "pin_id": 7,
-          "name": "Dixieland Delight Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-07.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      },
-      {
-          "pin_id": 8,
-          "name": "Full House Beamer Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "ping-08.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      },
-      {
-          "pin_id": 9,
-          "name": "Garnet Helmet Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-09.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      },
-      {
-          "pin_id": 10,
-          "name": "Giddy Up Garnet Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-10.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      },
-      {
-          "pin_id": 11,
-          "name": "Boots Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-11.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      },
-      {
-          "pin_id": 12,
-          "name": "Go Cocks Dog Pin",
-          "description": "Cute gameday pin!",
-          "price": "3.00",
-          "image": "pin-12.png",
-          "properties": {
-              "size": 2.5,
-              "material": "metal",
-              "shape": "circular",
-              "stock": "10"
-          }
-      }
-  ]
+    "pins": [
+        {
+            "pin_id": 1,
+            "name": "Gamecock Disco Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-01.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "20"
+            }
+        },
+        {
+            "pin_id": 2,
+            "name": "Spurs Up Cocky Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-02.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "23"
+            }
+        },
+        {
+            "pin_id": 3,
+            "name": "Sandstorm Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-03.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "0"
+            }
+        },
+        {
+            "pin_id": 4,
+            "name": "Logo Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-04.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        },
+        {
+            "pin_id": 5,
+            "name": "Beamer Ball Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-05.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        },
+        {
+            "pin_id": 6,
+            "name": "Garnet Gameday Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-06.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        },
+        {
+            "pin_id": 7,
+            "name": "Dixieland Delight Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-07.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        },
+        {
+            "pin_id": 8,
+            "name": "Full House Beamer Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-08.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        },
+        {
+            "pin_id": 9,
+            "name": "Garnet Helmet Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-09.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        },
+        {
+            "pin_id": 10,
+            "name": "Giddy Up Garnet Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-10.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        },
+        {
+            "pin_id": 11,
+            "name": "Boots Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-11.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        },
+        {
+            "pin_id": 12,
+            "name": "Go Cocks Dog Pin",
+            "description": "Cute game-day pin",
+            "price": "3.00",
+            "image": "pin-12.png",
+            "properties": {
+                "size": 2.5,
+                "material": "metal",
+                "shape": "circular",
+                "stock": "10"
+            }
+        }
+    ]
 }
