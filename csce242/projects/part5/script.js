@@ -56,7 +56,6 @@ class Pin {
             this.description = "OUT OF STOCK";
         }
 
-
         // Create the description section from the class properties
         const pinDetails = document.createElement("span");
         const pinFactText =
