@@ -13,7 +13,7 @@ body {
     border-bottom: 1px solid white;
 }
 
-label {
+.info-section label{
     color: black;
 }
 
@@ -75,6 +75,19 @@ main {
     width: 100%;
 }
 
+.custom-form {
+    width: 260px;
+}
+
+.custom-form textarea {
+    width: 220px;
+    height: 60px;
+}
+
+.custom-form button {
+    width: 230px;
+}
+
 .column {
     background-color: seashell;
     border: 5px solid black;
@@ -101,7 +114,7 @@ main {
 }
 
 label {
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
