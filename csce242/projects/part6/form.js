@@ -4,8 +4,9 @@ const submitEmail = (e) => {
   
     const form = document.getElementById("form-email");
     const emailName = form.elements["email-name"].value;
-  
-    console.log(emailName);
+    
+     console.log(emailName);
   };
-  
+ 
+
   document.getElementById("form-email").onsubmit = submitEmail;

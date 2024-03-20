@@ -32,6 +32,12 @@ const showEmailResult = async (e) => {
       document.getElementById("result").innerHTML =
       "Your feedback was unsuccessful, please try again!";
     }
+
+    setTimeout(() => {
+        const result = document.getElementById('result');
+      
+        result.style.display = 'none';
+      }, 2000);
   };
   
   document.getElementById("design-form").onsubmit = showEmailResult;
