@@ -10,7 +10,7 @@ const showEmailResult = async (e) => {
   };
   
   const getEmailResult = async (e) => {
-    const form = document.getElementById("contact-form");
+    const form = document.getElementById("design-form");
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -34,4 +34,4 @@ const showEmailResult = async (e) => {
     }
   };
   
-  document.getElementById("contact-form").onsubmit = showEmailResult;
+  document.getElementById("design-form").onsubmit = showEmailResult;
