@@ -5,8 +5,7 @@
     <title>Pins By Zoe: Contact Us</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
-    <script src="contactme.js"></script>
-    <script src="form.js"></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
 </head>
 <body>
     <div class="top-bg">
@@ -54,7 +53,8 @@
                         <section class="info-section">
                             <h3>Feedback</h3>
                             <div class="columns">
-                                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                                <form id="contact-form" method="POST">
+                                    <div class="h-captcha" data-captcha="true"></div>
                                     <input type="hidden" name="access_key" value="e0cf5e74-9796-4114-8bf9-4d1190a8f3f7"/>
                                     <p>
                                         <label for="name">Name:</label>
@@ -64,15 +64,13 @@
                                         <label for="email">Email:</label>
                                         <input id="email" type="email" name="email" required />
                                     </p>
-                                    <p>
-                                        <label for="feedback">Feedback:</label>
-                                        <textarea id="feedback" name="feedback" required></textarea>
-                                    </p>
-                                    <input type="hidden" name="redirect" value="https://web3forms.com/success"/> 
+                                    <p>                                        
+                                        <textarea id="feedback" name="feedback" placeholder="Give us your feedback" required></textarea>
+                                    </p>                                    
                                     <input type="hidden" name="subject" value="Contact from PinsByZoe"/>
                                     <input type="hidden" name="from_name" value="My Website" />
                                     <p><button class="add-to-cart">Submit Form</button></p>
-                                    <p id="result"></p>
+                                    <div id="result"></div>
                                 </form>
                                 <iframe
                                 id="map"

@@ -77,6 +77,7 @@ main {
 
 .custom-form {
     width: 260px;
+    text-align: right;
 }
 
 .custom-form textarea {
@@ -86,6 +87,13 @@ main {
 
 .custom-form button {
     width: 230px;
+}
+
+.custom-form input {
+    width: 150px;
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 5px;    
 }
 
 .column {

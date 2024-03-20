@@ -4,9 +4,7 @@
 <head>
     <title>Pins By Zoe: Designs</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
-    <script src="design.js"></script>
-    <script src="form.js"></script>
+    <script src="script.js"></script>    
 </head>
 
 <body>
@@ -41,30 +39,41 @@
     </div>
     <main>
         <div id="main-content">
-            <div id="pin-section" class="flex-container">   
+            <div id="pin-section" class="flex-container">
                 <section class="column">
-                    <section class="info-section">
-                            <form id="design-form" action="https://api.web3forms.com/submit" method="POST">
-                                <input type="hidden" name="access_key" value="e0cf5e74-9796-4114-8bf9-4d1190a8f3f7"/>
-                                <p>
-                                    <label for="custom">Customizations:</label>
-                                    <textarea id="design" name="design"></textarea>
-                                </p>
-                                <input type="hidden" name="redirect" value="https://web3forms.com/success"/> 
-                                <input type="hidden" name="subject" value="Contact from PinsByZoe"/>
-                                <input type="hidden" name="from_name" value="My Website" />
-                                <p><button class="add-to-cart">Submit Form</button></p>
-                                <p id="result"></p>
-                            </form>
-                        </div>
-                    </section>  
-                </section>           
+                    <section class="custom-form">
+                        <form id="design-form" method="POST">
+                            <h4>Design your own!</h4>
+                            <p>
+                                <label for="button-name">Name </label>
+                                <input id="button-name" type="text" name="button-name" required />
+                                <br/>
+                                <label for="button-desc">Desc. </label>
+                                <input id="button-desc" type="text" name="button-desc" required />
+                                <br/>
+                                <label for="button-shape">Shape</label>
+                                <input id="button-shape" type="text" name="button-shape" required />
+                                <br/>
+                                <label for="button-material">Material</label>
+                                <input id="button-material" type="text" name="button-material" required />
+                                <br/>
+                                <label for="button-size">Size </label>
+                                <input id="button-size" type="number" name="button-desc" required />
+                                <br/>                            
+                                <label for="button-pic">Describe an Image</label>
+                                <textarea id="button-pic" name="button-pic"></textarea>
+                            </p>
+                            <p><button type="submit" class="add-to-cart">Submit Design</button></p>                            
+                        </form>
+                    </section>
+                </section>
             </div>
-        </div>
+        </div>        
     </main>
     <footer id="main-footer">
-        <p>&copy; Zoe McCuen</p>
+        <p>&copy; Zoe McCuen</p>        
     </footer>
+    <p id="result"></p>
 </body>
 
 </html>
