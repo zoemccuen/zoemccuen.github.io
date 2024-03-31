@@ -1,0 +1,61 @@
+/* Structure */
+body {
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main_page {
+    background: #ffffff;
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+
+}
+
+#main-header h1, h2{
+    text-align: center;
+}
+
+#main-footer p {
+    text-align: center;
+        position:fixed;
+        left:0px;
+        bottom:0px;
+        height:30px;
+        width:100%;
+}
+ 
+
+/* Navigation */
+#main-nav ul {
+    text-align: center;
+}
+#main-nav li {
+    list-style-type: none;
+    text-align: center;
+}
+
+#main-nav a {
+    color: #000000;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#main-nav a :hover {
+    background: #A9A9A9; 
+}
+
+/* Images */
+
+/* Tables */
+
+/* Typography */
+h1 {
+    color: #000000; 
+}
+
+h2 {
+    color: #000000;
+}
+
