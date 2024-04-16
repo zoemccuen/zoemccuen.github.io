@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <title>Pins By Zoe: Designs</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>    
+</head>
+
+<body>
+    <div class="top-bg">
+        <header id="main-header">
+            <section class="flex-container">
+                <div>
+                    <h1 class="header-top-line">PinsByZoe</h1>
+                </div>
+                <div class="login-box">
+                    <label for="text-login" class="login-label">&#128100;</label>
+                    <input class="login" type="text" id="txt-first-login" placeholder="Enter Username" />
+                </div>
+            </section>
+            <nav id="main-nav">
+                <div id="nav-toggle">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="nav-menu">
+                    <ul>
+                        <li><a class="nav-link" href="./index.html">Main Page</a></li>
+                        <li class="current-page">Designs</li>
+                        <li class="nav-item"><a class="nav-link" href="./order.html">Order</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./reviews.html">Reviews</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <main>
+        <div id="main-content">
+            <div id="pin-section" class="flex-container">
+                <section class="column">
+                    <section class="custom-form">
+                        <form id="design-form" method="POST">
+                            <h4>Design your own!</h4>
+                            <p>
+                                <label for="button-name">Name </label>
+                                <input id="button-name" type="text" name="button-name" required />
+                                <br/>
+                                <label for="button-desc">Desc. </label>
+                                <input id="button-desc" type="text" name="button-desc" required />
+                                <br/>
+                                <label for="button-shape">Shape</label>
+                                <input id="button-shape" type="text" name="button-shape" required />
+                                <br/>
+                                <label for="button-material">Material</label>
+                                <input id="button-material" type="text" name="button-material" required />
+                                <br/>
+                                <label for="button-size">Size </label>
+                                <input id="button-size" type="number" name="button-desc" required />
+                                <br/>                            
+                                <label for="button-pic">Describe an Image</label>
+                                <textarea id="button-pic" name="button-pic"></textarea>
+                            </p>
+                            <p><button type="submit" class="add-to-cart">Submit Design</button></p>                            
+                        </form>
+                    </section>
+                </section>
+            </div>
+        </div>        
+    </main>
+    <footer id="main-footer">
+        <p>&copy; Zoe McCuen</p>        
+    </footer>
+    <p id="result"></p>
+</body>
+
+</html>
