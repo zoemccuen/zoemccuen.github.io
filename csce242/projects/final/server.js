@@ -30,7 +30,7 @@ mongoose
     .then(() => console.log("Connected to mongodb..."))
     .catch((err) => console.error("DB Error: Could not connect to MongoDB.", err));
 
-const craftSchema = new mongoose.Schema({
+const pinSchema = new mongoose.Schema({
     name: String,
     image: String,
     description: String,
@@ -41,16 +41,16 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
-const Craft = mongoose.model("pins", craftSchema);
+const Pin = mongoose.model("pins", pinSchema);
 
-let crafts = [];
+let pins = [];
 
-//Fetch all the crafts in Mongo and add them to the Array
-Craft.find({}) // Use find() without a callback
+//Fetch all the pins in Mongo and add them to the Array
+Pin.find({}) // Use find() without a callback
     .then(documents => {
         // Iterate over the array of documents
         documents.forEach(doc => {
-            // Push each document into the 'crafts' array
+            // Push each document into the 'pins' array
             pins.push({
                 id: doc._id,
                 name: doc.name,
@@ -62,11 +62,11 @@ Craft.find({}) // Use find() without a callback
         });
     })
     .catch(err => {
-        console.error('DB Error retrieving crafts:', err);
+        console.error('DB Error retrieving pins:', err);
         // Handle error
     });
 
-/* Delete a craft with the DELETE handler */
+/* Delete a pin with the DELETE handler */
 app.delete('/api/pins/:id', (req, res) => {
     const recId = req.params.id;
     console.log("Delete Record ID:", recId);
