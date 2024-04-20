@@ -75,13 +75,42 @@ class Pin {
 }
 
 const loadPin = async () => {
-    const url = "JSON/pins.json?" + new Date().getTime();;
+    const url = "https://zoemccuen-github-io.onrender.com/api/pins";
     try {
         const pin = await Pin.fetch(url);
         return await pin;
     } catch (error) {
         0
         console.log(error);
+    }
+}
+
+const toTitleCase = str => {
+    return str.replace(/\w\S*/g, txt => {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
+
+const addProperties = () => {
+    const theForm = document.getElementById("add-pins-form");
+    const propertiesTable = document.getElementById("properties-section");
+    const currentProperties = suppliesTable.querySelectorAll("input.short-input");
+    const lastRow = document.getElementById("add-properties");
+    let propertyCount = currentProperties.length;
+
+    if (currentProperties[propertyCount - 1].value !== "") {
+        const newRow = document.createElement("tr");
+        let newPropertyData = "<td class='right'>&nbsp;</td>";
+        newPropertyData += "<td class='left'>";
+        newPropertyData += "<input class='short-input' type='text' id='properties-" + PropertyCount + "' name='properties-" + PropertyCount + "' ";
+        newPropertyData += " value='" + currentProperties[propertiesCount - 1].value + "' required /></td></tr>";
+        newRow.innerHTML = newPropertyData;
+        // Check if lastRow is a direct child of suppliesTable
+        if (lastRow.parentNode === suppliesTable.querySelector("tbody")) {
+            propertiesTable.querySelector("tbody").insertBefore(newRow, lastRow);
+        } else {
+            console.error("Error: lastRow is not a direct child of suppliesTable.");
+        }
     }
 }
 
@@ -153,6 +182,37 @@ const submitEmail = (e) => {
 
     console.log(emailName);
 };
+
+const deletePin = (recId) => {
+    const url = `https://zoemccuen-github-io.onrender.com/api/pins${recId}`;
+    console.log("Deleting Pin ID:", recId);
+    const options = {
+        method: "DELETE", // Change to DELETE
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+
+    fetch(url, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Delete request successful:", data);
+        })
+        .catch(error => {
+            console.error("Error sending delete request:", error);
+        });
+
+    const confirmationDialog = document.getElementById("confirmationDialog");
+    confirmationDialog.close();
+    modalClose("modal-" + recId);
+    document.getElementById("pin-section").innerHTML = "";
+    initGallery();
+}
 
 const addDesign = () => {
     const form = document.getElementById("design-form");
