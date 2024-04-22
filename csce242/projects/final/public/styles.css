@@ -132,10 +132,9 @@ input {
 }
 
 .logo {
-    border-radius: 50%;
     overflow: hidden;
-    height: 300px;
-    width: 500px;
+    height: 400px;
+    width: 600px;
     padding: 5px;
 }
 
