@@ -26,7 +26,8 @@ const upload = multer({ storage: storage });
 
 mongoose
     .connect(
-        "mongodb+srv://zoelenore:1415Birchave!@assignment15.dg9dui2.mongodb.net/final?retryWrites=true&w=majority&appName=assignment15"    .then(() => {
+        "mongodb+srv://zoelenore:1415Birchave!@assignment15.dg9dui2.mongodb.net/final?retryWrites=true&w=majority&appName=assignment15")
+            .then(() => {
         console.log("Connected to mongodb...");        
     })
     .catch((err) => console.error("could not connect to mongodb...", err));
