@@ -131,6 +131,14 @@ input {
     color: black;
 }
 
+.logo {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 300px;
+    width: 500px;
+    padding: 5px;
+}
+
 .img-pin {
     border-radius: 50%;
     overflow: hidden;
