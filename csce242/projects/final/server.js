@@ -1,6 +1,7 @@
 const express = require("express");
 const Joi = require("joi");
 const mongoose = require("mongoose");
+const session = require('express-session');
 const multer = require('multer')
 const cors = require("cors");
 const { ReadConcern } = require("mongodb");
@@ -23,25 +24,32 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+//"mongodb+srv://zoelenore:1415Birchave!@assignment15.dg9dui2.mongodb.net/?retryWrites=true&w=majority&appName=assignment15"
 
 mongoose
     .connect(
-        "mongodb+srv://zoelenore:1415Birchave!@assignment15.dg9dui2.mongodb.net/final?retryWrites=true&w=majority&appName=assignment15")
-    .then(() => console.log("Connected to mongodb..."))
-    .catch((err) => console.error("DB Error: Could not connect to MongoDB.", err));
+        "mongodb+srv://mikemccuen:zr6NFgctTVw3ghfs@cluster999.4hzcbvx.mongodb.net/pinstore?retryWrites=true&w=majority&appName=Cluster999")
+    .then(() => {
+        console.log("Connected to mongodb...");        
+    })
+    .catch((err) => console.error("could not connect to mongodb...", err));
+
+const propertySchema = new mongoose.Schema({
+    size: String,
+    material: String,
+    shape: String,
+    stock: String
+});
 
 const pinSchema = new mongoose.Schema({
     name: String,
-    image: String,
     description: String,
-    supplies: [String]
+    price: String,
+    image: String,
+    properties: [propertySchema]
 });
 
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
-
-const Pin = mongoose.model("pins", pinSchema);
+const Pin = mongoose.model("Pin", pinSchema, "pins"); // specifying collection name
 
 let pins = [];
 
@@ -56,8 +64,7 @@ Pin.find({}) // Use find() without a callback
                 name: doc.name,
                 image: doc.image,
                 description: doc.description,
-                price: doc.price,
-                properties: doc.properties
+                supplies: doc.supplies
             });
         });
     })
@@ -109,8 +116,7 @@ app.post("/api/pins", upload.single("image"), (req, res) => {
         name: req.body.name,
         image: filename,
         description: req.body.description,
-        price: req.body.price,
-        properties: req.body.properties.split(",") 
+        supplies: req.body.supplies.split(",") 
     };
 
     const validation = validatePin(pin);
@@ -152,8 +158,7 @@ app.put("/api/pins/:id", upload.single("image"), (req, res) => {
         name: req.body.name,
         image: filename,
         description: req.body.description,
-        price: req.body.price,
-        properties: req.body.properties.split(",")  
+        supplies: req.body.supplies.split(",")  
     };
 
     const validation = validatePin(updates);
@@ -176,6 +181,62 @@ app.put("/api/pins/:id", upload.single("image"), (req, res) => {
         });
 });
 
+app.get("/api/pins", (req, res) => {
+    console.log("API Called- Fetching Pins");
+    // Fetch all the pins from MongoDB
+    Pin.find({})
+        .then(documents => {
+            // Map each document to the desired format            
+            const pins = documents.map(doc => ({
+                id: doc._id,
+                name: doc.name,                
+                description: doc.description,
+                price: doc.price,
+                image: doc.image,
+                properties: doc.properties
+            }));
+            // Respond with the fetched pins data
+            res.json({pins: pins});
+        })
+        .catch(err => {
+            console.error('DB Error retrieving pins:', err);
+            // Handle error
+            res.status(500).send('DB Error retrieving pins');
+        });
+});
+
+app.post("/api/pinbyid", (req, res) => {
+    const productIds = req.body.productIds;
+    console.log("API Called: pinbyid");
+    if (!productIds || productIds.length === 0) {
+        return res.status(400).send('No product IDs provided');
+    }
+
+    // Correctly convert string IDs to MongoDB ObjectId types using `new`
+    const objectIds = productIds.map(id => new mongoose.Types.ObjectId(id));
+
+    // Fetch only the documents with _id that are in the productIds array
+    Pin.find({
+        '_id': { $in: objectIds }
+    })
+    .then(documents => {
+        const pins = documents.map(doc => ({
+            id: doc._id,
+            name: doc.name,                
+            description: doc.description,
+            price: doc.price,
+            image: doc.image,
+            properties: doc.properties
+        }));
+        res.json({pins: pins});
+    })
+    .catch(err => {
+        console.error('DB Error retrieving pins by IDs:', err);
+        res.status(500).send('DB Error retrieving pins by IDs');
+    });
+});
+
+
 function extractFilename(url) {
     // Split the URL by forward slashes
     const parts = url.split('/');
@@ -190,35 +251,11 @@ const validatePin = (pin) => {
         name: Joi.string().min(3).required(),
         image: Joi.string().min(5).required(),
         description: Joi.string().min(1).required(),
-        price: Joi.string().min(5).required(),
-        properties: Joi.allow(),
+        supplies: Joi.allow(),
     });
     return schema.validate(pin);
 }
 
-app.get("/api/pins", (req, res) => {
-    // Fetch all the pins from MongoDB
-    Pin.find({})
-        .then(documents => {
-            // Map each document to the desired format
-            const pins = documents.map(doc => ({
-                id: doc._id,
-                name: doc.name,
-                image: doc.image,
-                description: doc.description,
-                price: doc.price,
-                properties: doc.properties
-            }));
-            // Respond with the fetched pins data
-            res.json(pins);
-        })
-        .catch(err => {
-            console.error('DB Error retrieving pins:', err);
-            // Handle error
-            res.status(500).send('DB Error retrieving pins');
-        });
-});
-
-app.listen(3006, () => {
-    console.log("Listening on port 3006");
+app.listen(3000, () => {
+    console.log("Listening on port 3000");
 });

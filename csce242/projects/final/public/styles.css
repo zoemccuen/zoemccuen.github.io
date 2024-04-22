@@ -39,6 +39,7 @@ div.order-info {
     flex: 1;
     padding: 15px;
     margin: 15px;
+    max-width: 300px;
 }
 
 main {
@@ -169,9 +170,22 @@ input {
     background-color: white;
     color: black;
     width: 100%;
+    max-width: 250px;
     height: 30px;
     text-transform: uppercase;
     border: 1px solid black;
+    font-weight: 800;
+}
+
+.in-cart {
+    background-color: rgba(134, 40, 222, 0.871);
+    color: white;
+    width: 100%;
+    max-width: 250px;
+    height: 30px;
+    text-transform: uppercase;
+    border: 1px solid black;
+    border-radius: 5px;
     font-weight: 800;
 }
 
@@ -274,6 +288,7 @@ h4 {
 .column-pin h3 {
     padding-top: 0;
     padding-bottom: 2px;
+    max-width: 300px;
     color: rgb(119, 129, 207);
     margin: auto;
     border-bottom: 1px solid white;

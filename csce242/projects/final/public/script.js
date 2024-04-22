@@ -3,16 +3,28 @@ const toggleNav = () => {
 }
 
 class Pin {
-    constructor(pin_id, name, description, price, image, properties) {
+    constructor(pin_id, name, description, price, image, propertiesArray) {
         this.pin_id = pin_id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.image = "images/" + image;
-        this.size = properties.size;
-        this.material = properties.material;
-        this.shape = properties.shape;
-        this.stock = properties.stock;
+
+        // Since propertiesArray is actually an array, extract the first object
+        if (propertiesArray && propertiesArray.length > 0) {
+            const properties = propertiesArray[0];
+            this.size = properties.size;
+            this.material = properties.material;
+            this.shape = properties.shape;
+            this.stock = properties.stock;
+        } else {
+            // Default values if properties are missing or the array is empty
+            this.size = '2.5';
+            this.material = 'Metal';
+            this.shape = 'Circular';
+            this.stock = '0';
+        }
+
     }
 
     static async fetch(url) {
@@ -22,12 +34,13 @@ class Pin {
                 throw new Error('Network response was not ok');
             }
             const jsonData = await response.json();
-            console.log(jsonData);
-            const { pins } = jsonData; // Accessing the "pins" array
+            const { pins } = jsonData; // Assuming pins is an array
+
             const thePins = pins.map(pinData => {
-                const { pin_id, name, description, price, image, properties } = pinData;
+                const { id: pin_id, name, description, price, image, properties } = pinData;
                 return new Pin(pin_id, name, description, price, image, properties);
             });
+
             return thePins;
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -35,7 +48,29 @@ class Pin {
         }
     }
 
-    get renderPin() {
+    static async fetchByIds(url, ids) {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productIds: ids })
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const jsonData = await response.json();
+            const { pins } = jsonData;
+
+            return pins.map(pinData => new Pin(pinData.id, pinData.name, pinData.description, pinData.price, pinData.image, pinData.properties));
+        } catch (error) {
+            console.error('Error fetching pins by IDs:', error);
+            return [];
+        }
+    }
+
+    // Create the Pins in the Designs section, adding an "add to card" button if the stock is >0
+    get renderPinDesigns() {
+        let addButtonHtml = ""; // Initialize the "add to cart" button to nothing. We'll set it in the stock check portion
         // Add the section for the pin
         const photoSection = document.createElement("section");
         photoSection.classList.add("column-pin");
@@ -54,6 +89,13 @@ class Pin {
             heading.classList.remove("column-pin");
             heading.classList.add("out-of-stock");
             this.description = "OUT OF STOCK";
+        } else {
+            //if it's not out of stock, add an "add to cart" button
+            if (!isIdInCart(this.pin_id)) {
+                addButtonHtml = "<button class='add-to-cart' id='add-" + this.pin_id + "'>Add To Cart</button>";
+            } else {
+                addButtonHtml = "<button class='in-cart'>In your cart!</button>";
+            }
         }
 
         // Create the description section from the class properties
@@ -61,7 +103,7 @@ class Pin {
         const pinFactText =
             this.description + "<br>" +
             this.size + " in. " +
-            this.shape + " " + this.material + "<br>Available: " + this.stock;
+            this.shape + " " + this.material + "<br>$" + this.price + "<br>Available: " + this.stock + "<br>" + addButtonHtml;
         pinDetails.innerHTML = pinFactText;
 
         // Build the object in the DOM!
@@ -71,11 +113,34 @@ class Pin {
 
         return photoSection;
     }
+}
 
+// Function to see if a PIN ID is in the shopping cart already
+function isIdInCart(itemId) {
+    // Fetch the shopping cart data from the cookie
+    const cartCookie = getCookie('shoppingCart');
+    const cart = cartCookie ? JSON.parse(cartCookie) : [];
+
+    // Check if the cart contains the item ID
+    const itemInCart = cart.some(item => item.id === itemId);
+    return itemInCart;
+}
+
+
+async function loadCart() {
+    const url = "http://192.168.1.72:3000/api/pinbyid";
+    const cart = JSON.parse(getCookie('shoppingCart') || '[]');
+    const cartProductIds = cart.map(item => item.id);
+    try {
+        const pins = await Pin.fetchByIds(url, cartProductIds);
+        return await pins;
+    } catch (error) {
+        console.error('Failed to fetch pins:', error);
+    }
 }
 
 const loadPin = async () => {
-    const url = "https://zoemccuen-github-io.onrender.com/api/pins";
+    const url = "http://192.168.1.72:3000/api/pins";
     try {
         const pin = await Pin.fetch(url);
         return await pin;
@@ -85,42 +150,35 @@ const loadPin = async () => {
     }
 }
 
-const toTitleCase = str => {
-    return str.replace(/\w\S*/g, txt => {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
-}
-
-const addProperties = () => {
-    const theForm = document.getElementById("add-pins-form");
-    const propertiesTable = document.getElementById("properties-section");
-    const currentProperties = suppliesTable.querySelectorAll("input.short-input");
-    const lastRow = document.getElementById("add-properties");
-    let propertyCount = currentProperties.length;
-
-    if (currentProperties[propertyCount - 1].value !== "") {
-        const newRow = document.createElement("tr");
-        let newPropertyData = "<td class='right'>&nbsp;</td>";
-        newPropertyData += "<td class='left'>";
-        newPropertyData += "<input class='short-input' type='text' id='properties-" + PropertyCount + "' name='properties-" + PropertyCount + "' ";
-        newPropertyData += " value='" + currentProperties[propertiesCount - 1].value + "' required /></td></tr>";
-        newRow.innerHTML = newPropertyData;
-        // Check if lastRow is a direct child of suppliesTable
-        if (lastRow.parentNode === suppliesTable.querySelector("tbody")) {
-            propertiesTable.querySelector("tbody").insertBefore(newRow, lastRow);
-        } else {
-            console.error("Error: lastRow is not a direct child of suppliesTable.");
-        }
-    }
-}
-
 const initGallery = async () => {
-    let pinArray = await loadPin();
     let photoGallery = document.getElementById("pin-section");
+    let shoppingCart = document.getElementById("order-display");
+    getCartFromCookies; // Update the shopping cart 
+    // If there's a "pin-section" then we're on the designs page, so we do a gallery of designs.
     if (photoGallery !== null) {
+        let pinArray = await loadPin();
         if (pinArray !== undefined && pinArray.length > 0) {
             pinArray.forEach((aPin) => {
-                photoGallery.append(aPin.renderPin);
+                photoGallery.append(aPin.renderPinDesigns);
+                //Add the "add to cart" button handler
+                const buttons = document.querySelectorAll('button[id^="add-"]');
+                buttons.forEach(button => {
+                    button.onclick = addToCart;
+                });
+            })
+        }
+    }
+    // If there's an order-display  then we're on the Shopping Cart Place order page.
+    if (shoppingCart !== null) {
+        let pinArray = await loadCart();
+        if (pinArray !== undefined && pinArray.length > 0) {
+            pinArray.forEach((aPin) => {
+                shoppingCart.append(aPin.renderPinDesigns);
+                //Add the "add to cart" button handler
+                const buttons = document.querySelectorAll('button[id^="add-"]');
+                buttons.forEach(button => {
+                    button.onclick = addToCart;
+                });
             })
         }
     }
@@ -183,37 +241,6 @@ const submitEmail = (e) => {
     console.log(emailName);
 };
 
-const deletePin = (recId) => {
-    const url = `https://zoemccuen-github-io.onrender.com/api/pins${recId}`;
-    console.log("Deleting Pin ID:", recId);
-    const options = {
-        method: "DELETE", // Change to DELETE
-        headers: {
-            "Content-Type": "application/json"
-        }
-    };
-
-    fetch(url, options)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Delete request successful:", data);
-        })
-        .catch(error => {
-            console.error("Error sending delete request:", error);
-        });
-
-    const confirmationDialog = document.getElementById("confirmationDialog");
-    confirmationDialog.close();
-    modalClose("modal-" + recId);
-    document.getElementById("pin-section").innerHTML = "";
-    initGallery();
-}
-
 const addDesign = () => {
     const form = document.getElementById("design-form");
     const formData = new FormData(form);
@@ -239,9 +266,97 @@ const addDesign = () => {
     }, 2000);
 }
 
+/* 
+    We didn't cover cookies, so I had to research them. Cookies allow persistent data to stay on the client side.
+    This will be used to set up the username and the shopping cart
+*/
+
+const setCookie = (name, value, days)  => {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
+}
+
+const getCookie = (name) => {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+const deleteCookie = (name) => {
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+const getCartFromCookies = () => {
+    const cartCookie = getCookie('shoppingCart');
+    if (cartCookie) {
+        return JSON.parse(cartCookie);
+    }
+    return [];
+}
+
+const addToCart = () => {
+    const buttonId = this.id.substring(4); // Get the Button ID from the button ID.
+    let cart = getCartFromCookies();
+
+    // Check if the item already exists in the cart
+    const existingItem = cart.find(item => item.id === buttonId);
+    if (existingItem) {
+        existingItem.quantity += 1; // Increment the quantity
+    } else {
+        // Add new item to the cart
+        cart.push({ id: buttonId, quantity: 1 });
+    }
+
+    // Save the updated cart back to the cookies
+    setCookie('shoppingCart', JSON.stringify(cart), 7); // Keeping the cookie for 7 days
+}
+
+const fetchCartDetails = () => {
+    const cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
+    const productIds = cart.map(item => item.id);
+
+    fetch('/api/getcart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productIds: productIds })
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Cart details:', data);
+        })
+        .catch(error => console.error('Error fetching cart details:', error));
+}
+
+const setUsername = (e) => {
+    const userNameInput = document.getElementById("txt-first-login");
+    setCookie('username', userNameInput.value);
+    userNameInput.readOnly = true;
+}
+
 window.onload = () => {
     initGallery();
+    const userNameInput = document.getElementById("txt-first-login");
     document.getElementById("nav-toggle").onclick = toggleNav;
+    
+    if (getCookie("username")!= "") {
+        userNameInput.value = getCookie("username");
+        userNameInput.readOnly = true;
+    } else {
+        userNameInput.onchange = setUsername;
+    }
+
     if (document.getElementById("contact-form") != null) {
         document.getElementById("contact-form").addEventListener("submit", async function (event) {
             event.preventDefault(); // Prevent default form submission            
@@ -253,6 +368,6 @@ window.onload = () => {
         document.getElementById("design-form").addEventListener("submit", async function (event) {
             event.preventDefault(); // Prevent default form submission            
         });
-        document.getElementById("design-form").onsubmit = addDesign;        
+        document.getElementById("design-form").onsubmit = addDesign;
     }
 };
