@@ -128,7 +128,7 @@ function isIdInCart(itemId) {
 
 
 async function loadCart() {
-    const url = "http://192.168.1.72:3000/api/pinbyid";
+    const url = "https://zoemccuen-github-io.onrender.com/api/pinbyid";
     const cart = JSON.parse(getCookie('shoppingCart') || '[]');
     const cartProductIds = cart.map(item => item.id);
     try {
@@ -140,7 +140,7 @@ async function loadCart() {
 }
 
 const loadPin = async () => {
-    const url = "http://192.168.1.72:3000/api/pins";
+    const url = "https://zoemccuen-github-io.onrender.com/api/pins";
     try {
         const pin = await Pin.fetch(url);
         return await pin;

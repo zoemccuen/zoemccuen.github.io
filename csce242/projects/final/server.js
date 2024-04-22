@@ -24,12 +24,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-//"mongodb+srv://zoelenore:1415Birchave!@assignment15.dg9dui2.mongodb.net/?retryWrites=true&w=majority&appName=assignment15"
-
 mongoose
     .connect(
-        "mongodb+srv://mikemccuen:zr6NFgctTVw3ghfs@cluster999.4hzcbvx.mongodb.net/pinstore?retryWrites=true&w=majority&appName=Cluster999")
-    .then(() => {
+        "mongodb+srv://zoelenore:1415Birchave!@assignment15.dg9dui2.mongodb.net/final?retryWrites=true&w=majority&appName=assignment15"    .then(() => {
         console.log("Connected to mongodb...");        
     })
     .catch((err) => console.error("could not connect to mongodb...", err));
@@ -256,6 +253,6 @@ const validatePin = (pin) => {
     return schema.validate(pin);
 }
 
-app.listen(3000, () => {
-    console.log("Listening on port 3000");
+app.listen(3006, () => {
+    console.log("Listening on port 3006");
 });
