@@ -133,8 +133,8 @@ input {
 
 .logo {
     overflow: hidden;
-    height: 400px;
-    width: 600px;
+    height: 200px;
+    width: 300px;
     padding: 5px;
 }
 
@@ -374,5 +374,12 @@ h4 {
     .column,
     .column-pin {
         flex: 1;
+    }
+    
+    .logo {
+        overflow: hidden;
+        height: 400px;
+        width: 600px;
+        padding: 5px;
     }
 }
