@@ -2,9 +2,9 @@
 <html lang="eng">
 
 <head>
-    <title>Pins By Zoe: Order</title>
+    <title>Pins By Zoe: Designs</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
+    <script src="script.js"></script>    
 </head>
 
 <body>
@@ -28,8 +28,8 @@
                 <div id="nav-menu">
                     <ul>
                         <li><a class="nav-link" href="./index.html">Main Page</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./designs.html">Designs</a></li>
-                        <li class="current-page">Order</li>
+                        <li class="current-page">Designs</li>
+                        <li class="nav-item"><a class="nav-link" href="./order.html">Order</a></li>
                         <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="./reviews.html">Reviews</a></li>
                     </ul>
@@ -38,27 +38,42 @@
         </header>
     </div>
     <main>
-        <div id="main-content">            
-            <div class="flex-container">                
-                <div id="order-display" class="flex-container">
-                    <div class="order-info">
-                        <section class="column">
-                            <h3>Your Order</h3>
-                            <div class="order-info">
-                                <p><input type="text" placeholder="NAME" /></p>
-                                <p><input type="text" placeholder="ADDRESS" /></p>
-                                <p><input type="text" placeholder="PHONE NUMBER" /></p>
-                            </div>
-                            <button class="add-to-cart">Place Order</button>
-                        </section>
-                    </div>
-                    
-                </div>                
-            </div>            
+        <div id="main-content">
+            <div id="pin-section" class="flex-container">
+                <section class="column">
+                    <section class="custom-form">
+                        <form id="design-form" method="POST">
+                            <h4>Design your own!</h4>
+                            <p>
+                                <label for="button-name">Name </label>
+                                <input id="button-name" type="text" name="button-name" required />
+                                <br/>
+                                <label for="button-desc">Desc. </label>
+                                <input id="button-desc" type="text" name="button-desc" required />
+                                <br/>
+                                <label for="button-shape">Shape</label>
+                                <input id="button-shape" type="text" name="button-shape" required />
+                                <br/>
+                                <label for="button-material">Material</label>
+                                <input id="button-material" type="text" name="button-material" required />
+                                <br/>
+                                <label for="button-size">Size </label>
+                                <input id="button-size" type="number" name="button-desc" required />
+                                <br/>                            
+                                <label for="button-pic">Describe an Image</label>
+                                <textarea id="button-pic" name="button-pic"></textarea>
+                            </p>
+                            <p><button type="submit" class="add-to-cart">Submit Design</button></p>                            
+                        </form>
+                    </section>
+                </section>
+            </div>
+        </div>        
     </main>
     <footer id="main-footer">
-        <p>&copy; Zoe McCuen</p>
+        <p>&copy; Zoe McCuen</p>        
     </footer>
+    <p id="result"></p>
 </body>
 
 </html>
