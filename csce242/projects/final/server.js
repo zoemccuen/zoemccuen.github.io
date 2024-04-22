@@ -24,6 +24,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+
 mongoose
     .connect(
         "mongodb+srv://zoelenore:1415Birchave!@assignment15.dg9dui2.mongodb.net/final?retryWrites=true&w=majority&appName=assignment15")
@@ -72,6 +73,11 @@ Pin.find({}) // Use find() without a callback
     });
 
 /* Delete a pin with the DELETE handler */
+
+/* Note: This is NOT called from the page presented to general public. However, I wanted to keep this option for 
+future admin consoles should I choose to keep this site in development.
+*/
+
 app.delete('/api/pins/:id', (req, res) => {
     const recId = req.params.id;
     console.log("Delete Record ID:", recId);
@@ -95,6 +101,10 @@ app.delete('/api/pins/:id', (req, res) => {
 
 
 /* Add a new pin with the POST handler */
+
+/* Note: This is NOT called from the page presented to general public. However, I wanted to keep this option for 
+future admin consoles should I choose to keep this site in development.
+*/
 app.post("/api/pins", upload.single("image"), (req, res) => {
     let filename;  // Determine filename here
 
@@ -136,6 +146,10 @@ app.post("/api/pins", upload.single("image"), (req, res) => {
 });
 
 /* Edit an existing pin with the PUT handler */
+/* Note: This is NOT called from the page presented to general public. However, I wanted to keep this option for 
+future admin consoles should I choose to keep this site in development.
+*/
+
 app.put("/api/pins/:id", upload.single("image"), (req, res) => {
     const pinId = req.params.id;
     let filename;
@@ -233,7 +247,6 @@ app.post("/api/pinbyid", (req, res) => {
         res.status(500).send('DB Error retrieving pins by IDs');
     });
 });
-
 
 function extractFilename(url) {
     // Split the URL by forward slashes

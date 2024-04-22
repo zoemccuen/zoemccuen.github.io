@@ -38,23 +38,20 @@
         </header>
     </div>
     <main>
-        <div id="main-content">            
-            <div class="flex-container">                
-                <div id="order-display" class="flex-container">
-                    <div class="order-info">
-                        <section class="column">
-                            <h3>Your Order</h3>
-                            <div class="order-info">
-                                <p><input type="text" placeholder="NAME" /></p>
-                                <p><input type="text" placeholder="ADDRESS" /></p>
-                                <p><input type="text" placeholder="PHONE NUMBER" /></p>
-                            </div>
-                            <button class="add-to-cart">Place Order</button>
-                        </section>
-                    </div>
-                    
+        <div id="main-content" class="flex-container">
+            <div class="column order-info">
+                <h3>Your Order</h3>
+                <div class="order-info">
+                    <form id="orderform" name="orderform">
+                        <p><input type="text" name="order-name" placeholder="NAME" /></p>
+                        <p><textarea name="order-address" placeholder="ADDRESS"></textarea></p>
+                        <p><input type="text" name="order-phone" placeholder="PHONE NUMBER" /></p>
+                    </form>
+                    <button class="add-to-cart">Place Order</button>
                 </div>                
-            </div>            
+            </div>
+            <div id="order-display" class="flex-container pin-cart"></div>
+        </div>
     </main>
     <footer id="main-footer">
         <p>&copy; Zoe McCuen</p>

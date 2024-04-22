@@ -4,8 +4,9 @@ const toggleNav = () => {
 
 class Pin {
     constructor(pin_id, name, description, price, image, propertiesArray) {
+        const fixName = name.replace(/\bPIN\b/gi, "").trim(); // Also added trim to remove any leading/trailing spaces
         this.pin_id = pin_id;
-        this.name = name;
+        this.name = fixName; // Strip the word "Pin" from the pin name- it's redundant
         this.description = description;
         this.price = price;
         this.image = "images/" + image;
@@ -49,28 +50,32 @@ class Pin {
     }
 
     static async fetchByIds(url, ids) {
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ productIds: ids })
-            });
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const jsonData = await response.json();
-            const { pins } = jsonData;
+        if (ids.length > 0) {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ productIds: ids })
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const jsonData = await response.json();
+                const { pins } = jsonData;
 
-            return pins.map(pinData => new Pin(pinData.id, pinData.name, pinData.description, pinData.price, pinData.image, pinData.properties));
-        } catch (error) {
-            console.error('Error fetching pins by IDs:', error);
-            return [];
+                return pins.map(pinData => new Pin(pinData.id, pinData.name, pinData.description, pinData.price, pinData.image, pinData.properties));
+            } catch (error) {
+                console.error('Error fetching pins by IDs:', error);
+                return [];
+            }
         }
     }
 
-    // Create the Pins in the Designs section, adding an "add to card" button if the stock is >0
+    // Create the Pins in the Designs section, adding an "add to cart" button if the stock is >0
     get renderPinDesigns() {
+        const pageTitle = document.title;
         let addButtonHtml = ""; // Initialize the "add to cart" button to nothing. We'll set it in the stock check portion
+        let pinFactText = "";
         // Add the section for the pin
         const photoSection = document.createElement("section");
         photoSection.classList.add("column-pin");
@@ -84,33 +89,43 @@ class Pin {
         const heading = document.createElement("h3");
         heading.innerText = this.name;
 
-        if (this.stock == "0") {
-            photoImg.classList.add("faded"); // If it's out of stock, make it known
-            heading.classList.remove("column-pin");
-            heading.classList.add("out-of-stock");
-            this.description = "OUT OF STOCK";
-        } else {
-            //if it's not out of stock, add an "add to cart" button
-            if (!isIdInCart(this.pin_id)) {
-                addButtonHtml = "<button class='add-to-cart' id='add-" + this.pin_id + "'>Add To Cart</button>";
+        const pinDetails = document.createElement("span");
+
+        // If this is the DESIGNS page, then we add Add To Cart, etc
+
+        if (pageTitle == "Pins By Zoe: Designs") {
+            if (this.stock == "0") {
+                photoImg.classList.add("faded"); // If it's out of stock, make it known
+                heading.classList.remove("column-pin");
+                heading.classList.add("out-of-stock");
+                this.description = "OUT OF STOCK";
             } else {
-                addButtonHtml = "<button class='in-cart'>In your cart!</button>";
+                //if it's not out of stock, add an "add to cart" button
+                if (!isIdInCart(this.pin_id)) {
+                    addButtonHtml = "<button class='add-to-cart' id='add-" + this.pin_id + "'>Add To Cart</button>";
+                } else {
+                    addButtonHtml = "<button class='in-cart'>In your cart!</button>";
+                }
             }
+
+            pinFactText = this.description + "<br>" + this.size + " in. " + this.shape + " " +
+                this.material + "<br>$" + this.price + "<br>Available: " + this.stock + "<br>" + addButtonHtml;
         }
 
-        // Create the description section from the class properties
-        const pinDetails = document.createElement("span");
-        const pinFactText =
-            this.description + "<br>" +
-            this.size + " in. " +
-            this.shape + " " + this.material + "<br>$" + this.price + "<br>Available: " + this.stock + "<br>" + addButtonHtml;
+        // If this is the ORDERS page, then we add Remove From Cart, etc
+        if (pageTitle == "Pins By Zoe: Order") {
+            addButtonHtml = "<button class='add-to-cart' id='del-" + this.pin_id + "'>Remove From Cart</button>";
+            pinFactText = this.description + "<br>" + this.size + " in. " + this.shape + " " +
+                this.material + "<br>$" + this.price + "<br>" + addButtonHtml;
+        }
+
         pinDetails.innerHTML = pinFactText;
 
         // Build the object in the DOM!
         photoSection.appendChild(photoImg); // Preview image
         photoSection.appendChild(heading); // Appending heading to pinBox
         photoSection.appendChild(pinDetails); // Append the details
-
+        console.log("Rendering PIN: " + this.pin_id);
         return photoSection;
     }
 }
@@ -161,25 +176,31 @@ const initGallery = async () => {
             pinArray.forEach((aPin) => {
                 photoGallery.append(aPin.renderPinDesigns);
                 //Add the "add to cart" button handler
-                const buttons = document.querySelectorAll('button[id^="add-"]');
-                buttons.forEach(button => {
-                    button.onclick = addToCart;
+                const addButtons = document.querySelectorAll('button[id^="add-"]');
+                addButtons.forEach(button => {
+                    button.addEventListener('click', addToCart);
                 });
             })
         }
     }
     // If there's an order-display  then we're on the Shopping Cart Place order page.
     if (shoppingCart !== null) {
-        let pinArray = await loadCart();
+        let pinArray = [];
+        pinArray = await loadCart();
         if (pinArray !== undefined && pinArray.length > 0) {
             pinArray.forEach((aPin) => {
                 shoppingCart.append(aPin.renderPinDesigns);
-                //Add the "add to cart" button handler
-                const buttons = document.querySelectorAll('button[id^="add-"]');
-                buttons.forEach(button => {
-                    button.onclick = addToCart;
+                //Add the "remove from cart" button handler
+                const delButtons = document.querySelectorAll('button[id^="del-"]');
+                delButtons.forEach(button => {
+                    button.addEventListener('click', removeFromCart);
                 });
             })
+        } else {
+                let emptyCart = "<div id='order-display' class='flex-container pin-cart'>";
+                emptyCart += "<div><h3>You must add items to your cart on the Designs page before placing an order.</h3></div>";
+                emptyCart += "</div>";
+                document.getElementById("order-display").innerHTML = emptyCart;            
         }
     }
 }
@@ -271,7 +292,7 @@ const addDesign = () => {
     This will be used to set up the username and the shopping cart
 */
 
-const setCookie = (name, value, days)  => {
+const setCookie = (name, value, days) => {
     let expires = "";
     if (days) {
         const date = new Date();
@@ -304,8 +325,8 @@ const getCartFromCookies = () => {
     return [];
 }
 
-const addToCart = () => {
-    const buttonId = this.id.substring(4); // Get the Button ID from the button ID.
+const addToCart = (e) => {
+    const buttonId = e.target.id.substring(4); // Get the Button ID from the button ID.
     let cart = getCartFromCookies();
 
     // Check if the item already exists in the cart
@@ -319,7 +340,22 @@ const addToCart = () => {
 
     // Save the updated cart back to the cookies
     setCookie('shoppingCart', JSON.stringify(cart), 7); // Keeping the cookie for 7 days
+    document.getElementById("pin-section").innerHTML = "<div id='pin-section' class='flex-container'></div>";
+    initGallery();
 }
+
+const removeFromCart = (e) => {
+    const buttonId = e.target.id.substring(4); // Extract ID after 'add-'
+    let cart = JSON.parse(getCookie('shoppingCart') || '[]'); // Get the current cart
+
+    // Remove the item with the given ID
+    cart = cart.filter(item => item.id !== buttonId);
+
+    // Save the updated cart back to the cookie
+    setCookie('shoppingCart', JSON.stringify(cart), 7); // Re-set the cookie with the new cart array
+    document.getElementById("order-display").innerHTML = "<div id='order-display' class='flex-container pin-cart'></div>";
+    initGallery();
+};
 
 const fetchCartDetails = () => {
     const cart = JSON.parse(localStorage.getItem('shoppingCart') || '[]');
@@ -349,8 +385,8 @@ window.onload = () => {
     initGallery();
     const userNameInput = document.getElementById("txt-first-login");
     document.getElementById("nav-toggle").onclick = toggleNav;
-    
-    if (getCookie("username")!= "") {
+
+    if (getCookie("username") != "") {
         userNameInput.value = getCookie("username");
         userNameInput.readOnly = true;
     } else {
